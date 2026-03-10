@@ -1,70 +1,3207 @@
 'use strict';
-// Full restaurant dataset seeded from original खाओ Pune PWA
+// खाओ Pune — Full restaurant dataset (142 restaurants, 21 cuisines)
 module.exports = [
-  { id:1,  name:"The Flour Works",     area:"Baner",        cuisine:"Cafe",           rating:4.7, budget:"₹₹₹", mustTry:"Sourdough Toast",         crowd:"mid",  tags:["trending","weekend","leaderboard"], vibe:["friends","insta"], desc:"Pune's most beloved European-style café. Artisan sourdough, specialty coffee, and the best workspace vibes in Baner.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=The+Flour+Works+Baner+Pune", reviews:1820, price:"₹600–900" },
-  { id:2,  name:"Spice Kitchen",       area:"Baner",        cuisine:"North Indian",   rating:4.5, budget:"₹₹",  mustTry:"Dal Makhani",             crowd:"mid",  tags:["weekend"],               vibe:["family"], desc:"Slow-cooked North Indian classics with legendary Dal Makhani simmered overnight.", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80", map:"https://maps.google.com/?q=Spice+Kitchen+Baner+Pune", reviews:2340, price:"₹400–700" },
-  { id:3,  name:"Wan Thai",            area:"Baner",        cuisine:"Chinese",        rating:4.6, budget:"₹₹",  mustTry:"Pad Thai",                crowd:"mid",  tags:["trending","weekend"],    vibe:["friends","family"], desc:"Authentic Thai and Pan-Asian in a moody setting. Best date-night in Baner.", img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80", map:"https://maps.google.com/?q=Wan+Thai+Baner+Pune", reviews:1560, price:"₹500–800" },
-  { id:4,  name:"Dosa Plaza",          area:"Baner",        cuisine:"South Indian",   rating:4.4, budget:"₹",   mustTry:"Masala Dosa",             crowd:"low",  tags:["gem"],                   vibe:["family"], desc:"Fast, fresh South Indian comfort food. Their crispy Masala Dosa draws a loyal morning crowd.", img:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80", map:"https://maps.google.com/?q=Dosa+Plaza+Baner+Pune", reviews:980, price:"₹150–300" },
-  { id:5,  name:"Punjab Da Dhaba",     area:"Wakad",        cuisine:"North Indian",   rating:4.6, budget:"₹₹",  mustTry:"Amritsari Kulcha",        crowd:"high", tags:["trending","weekend"],    vibe:["family"], desc:"Punjabi classics that taste straight from Amritsar. Sunday queues are their badge of honour.", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80", map:"https://maps.google.com/?q=Punjab+Da+Dhaba+Wakad+Pune", reviews:3200, price:"₹300–500" },
-  { id:6,  name:"Biryani Blues",       area:"Wakad",        cuisine:"Biryani",        rating:4.7, budget:"₹₹",  mustTry:"Hyderabadi Dum Biryani",  crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"Slow-cooked dum biryani sealed with dough. The crust-break aroma is the stuff of legends.", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80", map:"https://maps.google.com/?q=Biryani+Blues+Wakad+Pune", reviews:4100, price:"₹250–450" },
-  { id:7,  name:"Wakad Social",        area:"Wakad",        cuisine:"Cafe",           rating:4.5, budget:"₹₹",  mustTry:"Smash Burger",            crowd:"mid",  tags:["weekend"],               vibe:["friends","insta"], desc:"Wakad's most versatile hangout — café by day, cocktail den after dark.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Wakad+Social+Wakad+Pune", reviews:2100, price:"₹500–800" },
-  { id:8,  name:"Hyderabadi House",    area:"Hinjewadi",    cuisine:"Biryani",        rating:4.6, budget:"₹₹",  mustTry:"Hyderabadi Biryani",      crowd:"mid",  tags:["trending","weekend"],    vibe:["family"], desc:"Most authentic Hyderabadi biryani near IT Park. Haleem Fridays are a ritual.", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80", map:"https://maps.google.com/?q=Hyderabadi+House+Hinjewadi+Pune", reviews:2890, price:"₹200–400" },
-  { id:9,  name:"Tech Hub Café",       area:"Hinjewadi",    cuisine:"Cafe",           rating:4.3, budget:"₹₹",  mustTry:"Quinoa Power Bowl",       crowd:"mid",  tags:["trending"],              vibe:["friends","insta"], desc:"Purpose-built for IT professionals. Best WiFi, healthy menu, standing desks, zero pressure.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Tech+Hub+Café+Hinjewadi+Pune", reviews:1670, price:"₹300–600" },
-  { id:10, name:"Mithas Sweets",       area:"Hinjewadi",    cuisine:"Desserts",       rating:4.5, budget:"₹",   mustTry:"Kaju Katli",              crowd:"low",  tags:["weekend","gem"],         vibe:["friends"], desc:"Traditional mithai made fresh every morning. Kaju Katli sells out by noon on weekends.", img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80", map:"https://maps.google.com/?q=Mithas+Sweets+Hinjewadi+Pune", reviews:1200, price:"₹100–300" },
-  { id:11, name:"Aundh Kitchen",       area:"Aundh",        cuisine:"Maharashtrian",  rating:4.7, budget:"₹₹",  mustTry:"Misal Pav",               crowd:"mid",  tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"Authentic Maharashtrian flavours that taste like grandma made them. Sunday thali books out.", img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80", map:"https://maps.google.com/?q=Aundh+Kitchen+Aundh+Pune", reviews:1890, price:"₹200–400" },
-  { id:12, name:"Pizza Republic",      area:"Aundh",        cuisine:"Italian",        rating:4.4, budget:"₹₹",  mustTry:"Wood-fired Pizza",        crowd:"mid",  tags:["trending"],              vibe:["date"], desc:"Pune's best thin-crust wood-fired pizza. 72-hour ferment, imported Italian flour.", img:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80", map:"https://maps.google.com/?q=Pizza+Republic+Aundh+Pune", reviews:2200, price:"₹500–900" },
-  { id:13, name:"Chaat Corner",        area:"Aundh",        cuisine:"Street Food",    rating:4.5, budget:"₹",   mustTry:"Pani Puri (6 Waters)",    crowd:"high", tags:["weekend"],               vibe:["friends"], desc:"Six different pani puri flavours. Cash only, always packed, always worth it.", img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80", map:"https://maps.google.com/?q=Chaat+Corner+Aundh+Pune", reviews:3400, price:"₹50–150" },
-  { id:14, name:"Shabree Restaurant",  area:"Kothrud",      cuisine:"Maharashtrian",  rating:4.8, budget:"₹",   mustTry:"Misal Pav",               crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"Kothrud's most iconic restaurant. Their Misal Pav is the gold standard — no debate.", img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80", map:"https://maps.google.com/?q=Shabree+Restaurant+Kothrud+Pune", reviews:4200, price:"₹150–300" },
-  { id:15, name:"Vaishali",            area:"Deccan",       cuisine:"South Indian",   rating:4.8, budget:"₹",   mustTry:"Dosa + Filter Coffee",    crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"Pune's most legendary restaurant since 1958. No visit to Pune is complete without Vaishali's dosa.", img:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80", map:"https://maps.google.com/?q=Vaishali+Deccan+Pune", reviews:9800, price:"₹100–250" },
-  { id:16, name:"Good Luck Café",      area:"Deccan",       cuisine:"Cafe",           rating:4.7, budget:"₹",   mustTry:"Bun Maska",               crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["friends"], desc:"Pune's beloved Irani café since 1935. The Bun Maska and Irani chai combo is an institution.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Good+Luck+Café+Deccan+Pune", reviews:7200, price:"₹50–200" },
-  { id:17, name:"The Kapila",          area:"Kothrud",      cuisine:"Maharashtrian",  rating:4.5, budget:"₹₹",  mustTry:"Sabudana Khichdi",        crowd:"mid",  tags:["weekend","gem"],         vibe:["family"], desc:"Homestyle Maharashtrian cooking at its finest. Their sabudana khichdi on weekend mornings is a ritual.", img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80", map:"https://maps.google.com/?q=The+Kapila+Kothrud+Pune", reviews:1340, price:"₹150–350" },
-  { id:18, name:"Burger Hut",          area:"Viman Nagar",  cuisine:"Cafe",           rating:4.4, budget:"₹₹",  mustTry:"Double Smash Burger",     crowd:"mid",  tags:["trending"],              vibe:["friends"], desc:"Viman Nagar's best smash burgers. Thin patties, caramelised onions, and sauces that make a mess worth making.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Burger+Hut+Viman+Nagar+Pune", reviews:1880, price:"₹350–600" },
-  { id:19, name:"The Sassy Spoon",     area:"Viman Nagar",  cuisine:"Italian",        rating:4.6, budget:"₹₹₹", mustTry:"Truffle Pasta",           crowd:"mid",  tags:["weekend"],               vibe:["date","insta"], desc:"Viman Nagar's chicest brunch spot. Instagram-beautiful plating and flavours that justify the price tag.", img:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80", map:"https://maps.google.com/?q=The+Sassy+Spoon+Viman+Nagar+Pune", reviews:2450, price:"₹700–1200" },
-  { id:20, name:"Malaka Spice",        area:"Koregaon Park",cuisine:"Chinese",        rating:4.7, budget:"₹₹",  mustTry:"Rendang Curry",           crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["friends","family"], desc:"KP's most iconic Southeast Asian kitchen since 1997. Rendang and mango smoothies are legendary.", img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80", map:"https://maps.google.com/?q=Malaka+Spice+Koregaon+Park+Pune", reviews:6100, price:"₹500–900" },
-  { id:21, name:"Arthur's Theme",      area:"Koregaon Park",cuisine:"Cafe",           rating:4.5, budget:"₹₹₹", mustTry:"Filet Mignon",            crowd:"mid",  tags:["weekend"],               vibe:["date"], desc:"Pune's most theatrical dining experience with live jazz and a menu that matches the opulence.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Arthurs+Theme+Koregaon+Park+Pune", reviews:1890, price:"₹800–1500" },
-  { id:22, name:"Café Peter",          area:"Camp",         cuisine:"Cafe",           rating:4.6, budget:"₹",   mustTry:"Chicken Patty",           crowd:"high", tags:["trending","weekend"],    vibe:["friends","insta"], desc:"Camp's beloved heritage café since 1942. Iconic chicken patties and mutton cutlets that generations swear by.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Café+Peter+Camp+Pune", reviews:4200, price:"₹100–300" },
-  { id:23, name:"Royal China",         area:"Kalyani Nagar",cuisine:"Chinese",        rating:4.5, budget:"₹₹₹", mustTry:"Peking Duck",             crowd:"mid",  tags:["weekend"],               vibe:["family","date"], desc:"Kalyani Nagar's most refined Chinese restaurant. Executive chef trained in Hong Kong, authentic dim sum.", img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80", map:"https://maps.google.com/?q=Royal+China+Kalyani+Nagar+Pune", reviews:2100, price:"₹800–1500" },
-  { id:24, name:"Smoke House Deli",    area:"Kalyani Nagar",cuisine:"Cafe",           rating:4.5, budget:"₹₹₹", mustTry:"Pulled Pork Sandwich",    crowd:"mid",  tags:["trending","weekend"],    vibe:["friends","insta"], desc:"The buzzy all-day café with artisan sandwiches, single-origin coffee, and one of KN's best brunches.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Smoke+House+Deli+Kalyani+Nagar+Pune", reviews:2800, price:"₹600–1000" },
-  { id:25, name:"Prems Graama Bhojanam",area:"Shivajinagar", cuisine:"South Indian",  rating:4.7, budget:"₹",   mustTry:"Ghee Pongal",             crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"Authentic village-style Tamil cooking. Banana leaf meals at lunch are a weekly ritual for hundreds of Puneites.", img:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80", map:"https://maps.google.com/?q=Prems+Graama+Bhojanam+Shivajinagar+Pune", reviews:3800, price:"₹150–350" },
-  { id:26, name:"Mainland China",      area:"Shivajinagar", cuisine:"Chinese",        rating:4.4, budget:"₹₹₹", mustTry:"Dim Sum Platter",         crowd:"mid",  tags:["weekend"],               vibe:["family","date"], desc:"The national chain's Pune outpost does consistent, quality Chinese. Dim sum brunch on Sunday is great value.", img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80", map:"https://maps.google.com/?q=Mainland+China+Shivajinagar+Pune", reviews:2200, price:"₹700–1300" },
-  { id:27, name:"The Flour Box",       area:"Hadapsar",     cuisine:"Cafe",           rating:4.4, budget:"₹₹",  mustTry:"Cinnamon Roll",           crowd:"mid",  tags:["trending","gem"],        vibe:["friends","insta"], desc:"Hadapsar's secret bakery that the east Pune crowd fiercely protects. Daily fresh bakes and specialty coffee.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=The+Flour+Box+Hadapsar+Pune", reviews:890, price:"₹300–600" },
-  { id:28, name:"Biryani Park",        area:"Hadapsar",     cuisine:"Biryani",        rating:4.5, budget:"₹₹",  mustTry:"Chicken Dum Biryani",     crowd:"high", tags:["trending","weekend"],    vibe:["family"], desc:"Hadapsar's biryani institution. Long queues at lunch are a testament to the authentic recipe.", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80", map:"https://maps.google.com/?q=Biryani+Park+Hadapsar+Pune", reviews:3100, price:"₹200–400" },
-  { id:29, name:"PCMC Dhaba",          area:"PCMC",         cuisine:"North Indian",   rating:4.3, budget:"₹",   mustTry:"Butter Chicken",          crowd:"high", tags:["trending"],              vibe:["family"], desc:"PCMC's most popular dhaba-style restaurant. Generous portions, real tandoor, and prices that make sense.", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80", map:"https://maps.google.com/?q=PCMC+Dhaba+Pune", reviews:2800, price:"₹150–350" },
-  { id:30, name:"PCMC Misal",          area:"PCMC",         cuisine:"Maharashtrian",  rating:4.5, budget:"₹",   mustTry:"Kat Misal",               crowd:"high", tags:["weekend","leaderboard"], vibe:["family"], desc:"PCMC's answer to the great Pune misal debate. Their kat (gravy) has a devoted following in Pimpri-Chinchwad.", img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80", map:"https://maps.google.com/?q=PCMC+Misal+Pune", reviews:2100, price:"₹80–200" },
-  { id:31, name:"Café Goodluck",       area:"Deccan",       cuisine:"Cafe",           rating:4.7, budget:"₹",   mustTry:"Bun Maska & Irani Chai",  crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["friends","insta"], desc:"One of Pune's most legendary breakfast spots. The line at 8AM is just part of the ritual.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Café+Goodluck+Deccan+Pune", reviews:6800, price:"₹50–200" },
-  { id:60, name:"Shabari",             area:"Kothrud",      cuisine:"South Indian",   rating:4.5, budget:"₹",   mustTry:"Neer Dosa",               crowd:"mid",  tags:["weekend"],               vibe:["family"], desc:"Authentic Mangalorean and Kerala coastal food tucked in Kothrud. Their Neer Dosa and Prawn Ghee Roast combination has a devoted following.", img:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80", map:"https://maps.google.com/?q=Shabari+Kothrud+Pune", reviews:1800, price:"₹150–300" },
-  { id:61, name:"Elephant & Co.",      area:"Koregaon Park",cuisine:"Cafe",           rating:4.6, budget:"₹₹",  mustTry:"Pulled Pork Slider",      crowd:"high", tags:["trending","weekend"],    vibe:["friends","insta"], desc:"One of KP's most beloved all-day hangouts. The rooftop terrace on a Pune winter evening is an experience regulars call their happiest weekly ritual.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Elephant+&+Co.+Koregaon+Park+Pune", reviews:3800, price:"₹450–800" },
-  { id:62, name:"Swig",                area:"Koregaon Park",cuisine:"Cafe",           rating:4.5, budget:"₹₹",  mustTry:"Peri Peri Fries",         crowd:"high", tags:["weekend"],               vibe:["friends","insta"], desc:"KP's most buzzing cocktail bar. The Peri Peri Fries and loaded nachos are designed to be eaten with drinks.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Swig+Koregaon+Park+Pune", reviews:3500, price:"₹400–800" },
-  { id:63, name:"The Permit Room",     area:"Koregaon Park",cuisine:"South Indian",   rating:4.6, budget:"₹₹",  mustTry:"Appam & Stew",            crowd:"mid",  tags:["trending","weekend"],    vibe:["family"], desc:"South Indian food reimagined through a cocktail bar lens. Their Filter Kaapi cocktail and Kerala Beef Fry is one of KP's most talked-about orders.", img:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80", map:"https://maps.google.com/?q=The+Permit+Room+Koregaon+Park+Pune", reviews:2900, price:"₹500–900" },
-  { id:64, name:"Café Mezzuna",        area:"Koregaon Park",cuisine:"Italian",        rating:4.5, budget:"₹₹₹", mustTry:"Aglio e Olio",            crowd:"mid",  tags:["weekend"],               vibe:["date"], desc:"KP's elegant Italian patio experience. Live jazz on weekends and an Aglio e Olio that might be the best in the city.", img:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80", map:"https://maps.google.com/?q=Café+Mezzuna+Koregaon+Park+Pune", reviews:2400, price:"₹600–1000" },
-  { id:65, name:"Hard Rock Café",      area:"Koregaon Park",cuisine:"Cafe",           rating:4.3, budget:"₹₹₹", mustTry:"Legendary Burger",        crowd:"high", tags:["trending"],              vibe:["friends","insta"], desc:"The global rock institution with Pune energy. Memorabilia from legends cover every wall and live music nights are genuinely electric.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Hard+Rock+Café+Koregaon+Park+Pune", reviews:5200, price:"₹700–1200" },
-  { id:66, name:"Kayani Bakery",       area:"Camp",         cuisine:"Cafe",           rating:4.9, budget:"₹",   mustTry:"Shrewsbury Biscuits",     crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["friends","insta"], desc:"The most legendary bakery in Pune since 1955. Shrewsbury biscuits sell out — no exceptions. Open till 1PM only.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Kayani+Bakery+Camp+Pune", reviews:9200, price:"₹50–200" },
-  { id:67, name:"George Restaurant",   area:"Camp",         cuisine:"Cafe",           rating:4.6, budget:"₹₹",  mustTry:"Chicken Kiev",            crowd:"high", tags:["trending","weekend"],    vibe:["friends","insta"], desc:"Since 1937, George has been the Continental anchor of Camp. Their Caramel Custard and Fish & Chips have been ordered by every generation.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=George+Restaurant+Camp+Pune", reviews:3400, price:"₹200–500" },
-  { id:68, name:"Dorabjee's Deli",     area:"Camp",         cuisine:"Cafe",           rating:4.5, budget:"₹",   mustTry:"Cold Cuts",               crowd:"mid",  tags:["weekend"],               vibe:["friends","insta"], desc:"Since 1878, Pune's most beloved heritage deli. Cold cuts, imported cheese and freshly baked bread remain unmatched.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Dorabjees+Deli+Camp+Pune", reviews:2100, price:"₹150–400" },
-  { id:69, name:"Place of Origin",     area:"Camp",         cuisine:"North Indian",   rating:4.4, budget:"₹₹",  mustTry:"Assamese Pork",           crowd:"mid",  tags:["gem"],                   vibe:["family"], desc:"Regional Indian cuisines from across the country under one roof — from Assamese pork to Chettinad chicken.", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80", map:"https://maps.google.com/?q=Place+of+Origin+Camp+Pune", reviews:1300, price:"₹400–700" },
-  { id:70, name:"Café Sunrise",        area:"Deccan",       cuisine:"Maharashtrian",  rating:4.7, budget:"₹",   mustTry:"Misal Pav",               crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"The most beloved morning café on Deccan Gymkhana. Their Misal Pav has been Pune's morning ritual for generations.", img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80", map:"https://maps.google.com/?q=Café+Sunrise+Deccan+Pune", reviews:5600, price:"₹80–200" },
-  { id:71, name:"Malwani Mattha",      area:"Deccan",       cuisine:"Maharashtrian",  rating:4.5, budget:"₹",   mustTry:"Crab Masala",             crowd:"mid",  tags:["weekend"],               vibe:["family"], desc:"Authentic Malwani coastal cooking where the crab masala makes you forget the outside world.", img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80", map:"https://maps.google.com/?q=Malwani+Mattha+Deccan+Pune", reviews:2200, price:"₹150–350" },
-  { id:72, name:"Cream Centre",        area:"Deccan",       cuisine:"North Indian",   rating:4.4, budget:"₹₹",  mustTry:"Paneer Tikka",            crowd:"high", tags:["trending"],              vibe:["family"], desc:"The vegetarian institution that has satisfied families across generations. Their sizzlers are legendary.", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80", map:"https://maps.google.com/?q=Cream+Centre+Deccan+Pune", reviews:3100, price:"₹300–600" },
-  { id:73, name:"Bedekar Tea Stall",   area:"Narayan Peth", cuisine:"Cafe",           rating:4.8, budget:"₹",   mustTry:"Masala Chai",             crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["friends","insta"], desc:"Since 1921, the most legendary chai stall in all of Pune. Standing room only — and nobody complains.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Bedekar+Tea+Stall+Narayan+Peth+Pune", reviews:4100, price:"₹20–80" },
-  { id:74, name:"Chitale Bandhu",      area:"Sadashiv Peth",cuisine:"Desserts",       rating:4.8, budget:"₹",   mustTry:"Bakarwadi",               crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["friends"], desc:"The most iconic mithai shop in Pune since 1950. Their Bakarwadi is the definitive version and is shipped worldwide.", img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80", map:"https://maps.google.com/?q=Chitale+Bandhu+Mithaiwale+Sadashiv+Peth+Pune", reviews:7200, price:"₹50–400" },
-  { id:75, name:"Ministry of Crab",    area:"Baner",        cuisine:"South Indian",   rating:4.7, budget:"₹₹₹", mustTry:"Sri Lankan Crab",         crowd:"mid",  tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"The award-winning Sri Lankan seafood restaurant now in Pune. Book weeks ahead for weekends.", img:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80", map:"https://maps.google.com/?q=Ministry+of+Crab+Baner+Pune", reviews:2800, price:"₹1200–2500" },
-  { id:76, name:"SodaBottleOpenerWala",area:"Baner",        cuisine:"Cafe",           rating:4.5, budget:"₹₹",  mustTry:"Berry Pulao",             crowd:"mid",  tags:["weekend"],               vibe:["friends","insta"], desc:"The beloved Irani café concept — equal parts heritage and fun. Berry Pulao and Sali Boti are the stars.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=SodaBottleOpenerWala+Baner+Pune", reviews:2300, price:"₹400–700" },
-  { id:77, name:"Fog & Fennel",        area:"Baner",        cuisine:"Cafe",           rating:4.6, budget:"₹₹",  mustTry:"Truffle Mushroom Toast",  crowd:"mid",  tags:["weekend","gem"],         vibe:["friends","insta"], desc:"Baner's most photogenic café — botanical walls, single-origin coffee and a brunch menu that earns its Instagram fame.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Fog+&+Fennel+Baner+Pune", reviews:1340, price:"₹500–850" },
-  { id:78, name:"House of Mandarin",   area:"Wakad",        cuisine:"Chinese",        rating:4.6, budget:"₹₹",  mustTry:"Prawn Har Gow",           crowd:"mid",  tags:["trending","weekend"],    vibe:["friends","family"], desc:"Wakad's most serious Chinese kitchen. Proper dim sum handmade every morning.", img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80", map:"https://maps.google.com/?q=House+of+Mandarin+Wakad+Pune", reviews:2050, price:"₹450–750" },
-  { id:79, name:"Gong",                area:"Wakad",        cuisine:"Chinese",        rating:4.5, budget:"₹₹",  mustTry:"Lamb Bao",                crowd:"mid",  tags:["weekend"],               vibe:["friends","family"], desc:"Wakad's sleekest Pan-Asian dining room. Low lighting, curated cocktails and a menu that moves from Japanese to Chinese to Southeast Asian.", img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80", map:"https://maps.google.com/?q=Gong+Wakad+Pune", reviews:1750, price:"₹500–900" },
-  { id:80, name:"Dessert Stories",     area:"Baner",        cuisine:"Desserts",       rating:4.6, budget:"₹₹",  mustTry:"Chocolate Lava Cake",     crowd:"mid",  tags:["trending","weekend","gem"], vibe:["friends","insta"], desc:"Baner's dessert destination. The chocolate lava cake comes tableside and the Instagram value is real.", img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80", map:"https://maps.google.com/?q=Dessert+Stories+Baner+Pune", reviews:1650, price:"₹300–600" },
-  { id:81, name:"Hotel Shreyas",       area:"Deccan",       cuisine:"Maharashtrian",  rating:4.6, budget:"₹",   mustTry:"Thalipeeth",              crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"Deccan's famous vegetarian Maharashtrian restaurant. The Thalipeeth with white butter is pure Pune soul food.", img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80", map:"https://maps.google.com/?q=Hotel+Shreyas+Deccan+Pune", reviews:3400, price:"₹200–400" },
-  { id:83, name:"Nimkar Tea Stall",    area:"Narayan Peth", cuisine:"Cafe",           rating:4.6, budget:"₹",   mustTry:"Kulhad Chai",             crowd:"high", tags:["trending","gem"],        vibe:["friends"], desc:"The original kulhad chai spot of old Pune. Standing beside regulars who've been coming for 30 years is humbling.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Nimkar+Tea+Stall+Narayan+Peth+Pune", reviews:1200, price:"₹15–60" },
-  { id:84, name:"The Biryani Shop",    area:"Hadapsar",     cuisine:"Biryani",        rating:4.5, budget:"₹₹",  mustTry:"Lamb Dum Biryani",        crowd:"mid",  tags:["trending","weekend"],    vibe:["family"], desc:"Hadapsar's most dedicated biryani kitchen. The Lamb Dum Biryani is slow-cooked for hours and worth every minute.", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80", map:"https://maps.google.com/?q=The+Biryani+Shop+Hadapsar+Pune", reviews:2100, price:"₹250–450" },
-  { id:85, name:"The Breakfast Club",  area:"Aundh",        cuisine:"Cafe",           rating:4.6, budget:"₹₹",  mustTry:"Full English",            crowd:"mid",  tags:["trending","weekend"],    vibe:["friends","insta"], desc:"The definitive all-day breakfast spot in Aundh. Bottomless coffee, eggs cooked exactly as ordered.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=The+Breakfast+Club+Aundh+Pune", reviews:1900, price:"₹350–650" },
-  { id:86, name:"The Fisherman's Wharf",area:"Aundh",       cuisine:"South Indian",   rating:4.7, budget:"₹₹",  mustTry:"Kolambi Masala",          crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"Coastal Maharashtrian and Goan seafood executed so well that regulars come from across the city.", img:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80", map:"https://maps.google.com/?q=The+Fishermans+Wharf+Aundh+Pune", reviews:3100, price:"₹400–700" },
-  { id:87, name:"Smoke & Spice",       area:"Aundh",        cuisine:"North Indian",   rating:4.6, budget:"₹₹",  mustTry:"Smoked Brisket",          crowd:"mid",  tags:["trending","weekend"],    vibe:["family"], desc:"Pune's most serious BBQ kitchen. Their 14-hour Smoked Brisket tastes exactly like that much effort.", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80", map:"https://maps.google.com/?q=Smoke+&+Spice+Aundh+Pune", reviews:2100, price:"₹500–900" },
-  { id:88, name:"Chulha Chauka",       area:"Hinjewadi",    cuisine:"North Indian",   rating:4.5, budget:"₹₹",  mustTry:"Rajasthani Thali",        crowd:"mid",  tags:["weekend"],               vibe:["family"], desc:"Rustic home-style Rajasthani cooking. Weekend Dal Baati Churma is something genuinely special.", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80", map:"https://maps.google.com/?q=Chulha+Chauka+Hinjewadi+Pune", reviews:2200, price:"₹250–450" },
-  { id:89, name:"The Daily Grind",     area:"Hinjewadi",    cuisine:"Cafe",           rating:4.4, budget:"₹₹",  mustTry:"Pour Over",               crowd:"mid",  tags:["trending"],              vibe:["friends","insta"], desc:"Third-wave coffee done right in IT Park. Single-origin pour-overs, fast WiFi, and enough power outlets for the entire team.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=The+Daily+Grind+Hinjewadi+Pune", reviews:1890, price:"₹300–600" },
-  { id:90, name:"Shabree Sinhgad",     area:"Sinhgad Road", cuisine:"Maharashtrian",  rating:4.7, budget:"₹",   mustTry:"Misal Pav",               crowd:"high", tags:["trending","weekend","leaderboard"], vibe:["family"], desc:"The Sinhgad Road outpost of the iconic Shabree brand. Same uncompromising Misal Pav, same fiercely loyal breakfast crowd.", img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80", map:"https://maps.google.com/?q=Shabree+Sinhgad+Sinhgad+Road+Pune", reviews:3200, price:"₹100–250" },
-  { id:91, name:"Hotel Sinhgad Vaishali",area:"Sinhgad Road",cuisine:"South Indian", rating:4.5, budget:"₹",   mustTry:"Masala Dosa",             crowd:"mid",  tags:["weekend"],               vibe:["family"], desc:"The Sinhgad Road institution for South Indian comfort food. Their Filter Coffee is legitimately great.", img:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80", map:"https://maps.google.com/?q=Hotel+Sinhgad+Vaishali+Sinhgad+Road+Pune", reviews:2100, price:"₹80–220" },
-  { id:92, name:"Panchali",            area:"Sinhgad Road", cuisine:"Maharashtrian",  rating:4.6, budget:"₹",   mustTry:"Maharashtrian Thali",     crowd:"mid",  tags:["trending","weekend"],    vibe:["family"], desc:"Sinhgad Road's best unlimited Maharashtrian thali — home-style cooking with generous portions.", img:"https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80", map:"https://maps.google.com/?q=Panchali+Sinhgad+Road+Pune", reviews:1800, price:"₹150–300" },
-  { id:93, name:"Cafe Indulge",        area:"Sinhgad Road", cuisine:"Cafe",           rating:4.4, budget:"₹₹",  mustTry:"Cold Brew",               crowd:"low",  tags:["gem"],                   vibe:["friends","insta"], desc:"A cosy neighbourhood café that Sinhgad Road residents treat as their living room. Reliable cold brew and honest sandwiches.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Cafe+Indulge+Sinhgad+Road+Pune", reviews:1100, price:"₹250–500" },
-  { id:94, name:"Dhaba 59",            area:"Sinhgad Road", cuisine:"North Indian",   rating:4.5, budget:"₹₹",  mustTry:"Dal Tadka",               crowd:"mid",  tags:["weekend"],               vibe:["family"], desc:"The late-night dhaba that Sinhgad Road residents rally around. Open till 1AM on weekends — the Dal Tadka at 11PM hits different.", img:"https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80", map:"https://maps.google.com/?q=Dhaba+59+Sinhgad+Road+Pune", reviews:2400, price:"₹200–400" },
-  { id:95, name:"Sinhgad Fort View",   area:"Sinhgad Road", cuisine:"Cafe",           rating:4.6, budget:"₹",   mustTry:"Bhaji Pav",               crowd:"high", tags:["trending","weekend"],    vibe:["friends","insta"], desc:"The café at the base of Sinhgad Fort road with the view that makes everything taste better.", img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80", map:"https://maps.google.com/?q=Sinhgad+Fort+View+Café+Sinhgad+Road+Pune", reviews:3100, price:"₹100–250" },
+  {
+    "id": 1,
+    "name": "The Flour Works",
+    "area": "Baner",
+    "cuisine": "Cafe",
+    "rating": 4.7,
+    "budget": "₹₹₹",
+    "mustTry": "Sourdough Toast",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Pune's most beloved European-style café. Artisan sourdough, specialty coffee, and the best workspace vibes in Baner.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Flour+Works+Baner+Pune",
+    "reviews": 1820,
+    "price": "₹600–900"
+  },
+  {
+    "id": 2,
+    "name": "Spice Kitchen",
+    "area": "Baner",
+    "cuisine": "North Indian",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Dal Makhani",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Slow-cooked North Indian classics with legendary Dal Makhani simmered overnight.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Spice+Kitchen+Baner+Pune",
+    "reviews": 2340,
+    "price": "₹400–700"
+  },
+  {
+    "id": 3,
+    "name": "Wan Thai",
+    "area": "Baner",
+    "cuisine": "Chinese",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Pad Thai",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "Authentic Thai and Pan-Asian in a moody setting. Best date-night in Baner.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=Wan+Thai+Baner+Pune",
+    "reviews": 1560,
+    "price": "₹500–800"
+  },
+  {
+    "id": 4,
+    "name": "Dosa Plaza",
+    "area": "Baner",
+    "cuisine": "South Indian",
+    "rating": 4.4,
+    "budget": "₹",
+    "mustTry": "Masala Dosa",
+    "crowd": "low",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Fast, fresh South Indian comfort food. Their crispy Masala Dosa draws a loyal morning crowd.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=Dosa+Plaza+Baner+Pune",
+    "reviews": 980,
+    "price": "₹150–300"
+  },
+  {
+    "id": 5,
+    "name": "Punjab Da Dhaba",
+    "area": "Wakad",
+    "cuisine": "North Indian",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Amritsari Kulcha",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Punjabi classics that taste straight from Amritsar. Sunday queues are their badge of honour.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Punjab+Da+Dhaba+Wakad+Pune",
+    "reviews": 3200,
+    "price": "₹300–500"
+  },
+  {
+    "id": 6,
+    "name": "Biryani Blues",
+    "area": "Wakad",
+    "cuisine": "Biryani",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Hyderabadi Dum Biryani",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Slow-cooked dum biryani sealed with dough. The crust-break aroma is the stuff of legends.",
+    "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80",
+    "map": "https://maps.google.com/?q=Biryani+Blues+Wakad+Pune",
+    "reviews": 4100,
+    "price": "₹250–450"
+  },
+  {
+    "id": 7,
+    "name": "Wakad Social",
+    "area": "Wakad",
+    "cuisine": "Cafe",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Smash Burger",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Wakad's most versatile hangout — café by day, cocktail den after dark.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Wakad+Social+Wakad+Pune",
+    "reviews": 2100,
+    "price": "₹500–800"
+  },
+  {
+    "id": 8,
+    "name": "Hyderabadi House",
+    "area": "Hinjewadi",
+    "cuisine": "Biryani",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Hyderabadi Biryani",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Most authentic Hyderabadi biryani near IT Park. Haleem Fridays are a ritual.",
+    "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80",
+    "map": "https://maps.google.com/?q=Hyderabadi+House+Hinjewadi+Pune",
+    "reviews": 2890,
+    "price": "₹200–400"
+  },
+  {
+    "id": 9,
+    "name": "Tech Hub Café",
+    "area": "Hinjewadi",
+    "cuisine": "Cafe",
+    "rating": 4.3,
+    "budget": "₹₹",
+    "mustTry": "Quinoa Power Bowl",
+    "crowd": "mid",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Purpose-built for IT professionals. Best WiFi, healthy menu, standing desks, zero pressure.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Tech+Hub+Café+Hinjewadi+Pune",
+    "reviews": 1670,
+    "price": "₹300–600"
+  },
+  {
+    "id": 10,
+    "name": "Mithas Sweets",
+    "area": "Hinjewadi",
+    "cuisine": "Desserts",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Kaju Katli",
+    "crowd": "low",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Traditional mithai made fresh every morning. Kaju Katli sells out by noon on weekends.",
+    "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80",
+    "map": "https://maps.google.com/?q=Mithas+Sweets+Hinjewadi+Pune",
+    "reviews": 1200,
+    "price": "₹100–300"
+  },
+  {
+    "id": 11,
+    "name": "Aundh Kitchen",
+    "area": "Aundh",
+    "cuisine": "Maharashtrian",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Misal Pav",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Authentic Maharashtrian flavours that taste like grandma made them. Sunday thali books out.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Aundh+Kitchen+Aundh+Pune",
+    "reviews": 1890,
+    "price": "₹200–400"
+  },
+  {
+    "id": 12,
+    "name": "Pizza Republic",
+    "area": "Aundh",
+    "cuisine": "Italian",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Wood-fired Pizza",
+    "crowd": "mid",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "date"
+    ],
+    "desc": "Pune's best thin-crust wood-fired pizza. 72-hour ferment, imported Italian flour.",
+    "img": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80",
+    "map": "https://maps.google.com/?q=Pizza+Republic+Aundh+Pune",
+    "reviews": 2200,
+    "price": "₹500–900"
+  },
+  {
+    "id": 13,
+    "name": "Chaat Corner",
+    "area": "Aundh",
+    "cuisine": "Street Food",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Pani Puri (6 Waters)",
+    "crowd": "high",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Six different pani puri flavours. Cash only, always packed, always worth it.",
+    "img": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80",
+    "map": "https://maps.google.com/?q=Chaat+Corner+Aundh+Pune",
+    "reviews": 3400,
+    "price": "₹50–150"
+  },
+  {
+    "id": 14,
+    "name": "Shabree Restaurant",
+    "area": "Kothrud",
+    "cuisine": "Maharashtrian",
+    "rating": 4.8,
+    "budget": "₹",
+    "mustTry": "Misal Pav",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Kothrud's most iconic restaurant. Their Misal Pav is the gold standard — no debate.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Shabree+Restaurant+Kothrud+Pune",
+    "reviews": 4200,
+    "price": "₹150–300"
+  },
+  {
+    "id": 15,
+    "name": "Vaishali",
+    "area": "Deccan",
+    "cuisine": "South Indian",
+    "rating": 4.8,
+    "budget": "₹",
+    "mustTry": "Dosa + Filter Coffee",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Pune's most legendary restaurant since 1958. No visit to Pune is complete without Vaishali's dosa.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=Vaishali+Deccan+Pune",
+    "reviews": 9800,
+    "price": "₹100–250"
+  },
+  {
+    "id": 16,
+    "name": "Good Luck Café",
+    "area": "Deccan",
+    "cuisine": "Cafe",
+    "rating": 4.7,
+    "budget": "₹",
+    "mustTry": "Bun Maska",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Pune's beloved Irani café since 1935. The Bun Maska and Irani chai combo is an institution.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Good+Luck+Café+Deccan+Pune",
+    "reviews": 7200,
+    "price": "₹50–200"
+  },
+  {
+    "id": 17,
+    "name": "The Kapila",
+    "area": "Kothrud",
+    "cuisine": "Maharashtrian",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Sabudana Khichdi",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Homestyle Maharashtrian cooking at its finest. Their sabudana khichdi on weekend mornings is a ritual.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Kapila+Kothrud+Pune",
+    "reviews": 1340,
+    "price": "₹150–350"
+  },
+  {
+    "id": 18,
+    "name": "Burger Hut",
+    "area": "Viman Nagar",
+    "cuisine": "Cafe",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Double Smash Burger",
+    "crowd": "mid",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Viman Nagar's best smash burgers. Thin patties, caramelised onions, and sauces that make a mess worth making.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Burger+Hut+Viman+Nagar+Pune",
+    "reviews": 1880,
+    "price": "₹350–600"
+  },
+  {
+    "id": 19,
+    "name": "The Sassy Spoon",
+    "area": "Viman Nagar",
+    "cuisine": "Italian",
+    "rating": 4.6,
+    "budget": "₹₹₹",
+    "mustTry": "Truffle Pasta",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "date",
+      "insta"
+    ],
+    "desc": "Viman Nagar's chicest brunch spot. Instagram-beautiful plating and flavours that justify the price tag.",
+    "img": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Sassy+Spoon+Viman+Nagar+Pune",
+    "reviews": 2450,
+    "price": "₹700–1200"
+  },
+  {
+    "id": 20,
+    "name": "Malaka Spice",
+    "area": "Koregaon Park",
+    "cuisine": "Chinese",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Rendang Curry",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "KP's most iconic Southeast Asian kitchen since 1997. Rendang and mango smoothies are legendary.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=Malaka+Spice+Koregaon+Park+Pune",
+    "reviews": 6100,
+    "price": "₹500–900"
+  },
+  {
+    "id": 21,
+    "name": "Arthur's Theme",
+    "area": "Koregaon Park",
+    "cuisine": "Cafe",
+    "rating": 4.5,
+    "budget": "₹₹₹",
+    "mustTry": "Filet Mignon",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "date"
+    ],
+    "desc": "Pune's most theatrical dining experience with live jazz and a menu that matches the opulence.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Arthurs+Theme+Koregaon+Park+Pune",
+    "reviews": 1890,
+    "price": "₹800–1500"
+  },
+  {
+    "id": 22,
+    "name": "Café Peter",
+    "area": "Camp",
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Chicken Patty",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Camp's beloved heritage café since 1942. Iconic chicken patties and mutton cutlets that generations swear by.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Café+Peter+Camp+Pune",
+    "reviews": 4200,
+    "price": "₹100–300"
+  },
+  {
+    "id": 23,
+    "name": "Royal China",
+    "area": "Kalyani Nagar",
+    "cuisine": "Chinese",
+    "rating": 4.5,
+    "budget": "₹₹₹",
+    "mustTry": "Peking Duck",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "family",
+      "date"
+    ],
+    "desc": "Kalyani Nagar's most refined Chinese restaurant. Executive chef trained in Hong Kong, authentic dim sum.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=Royal+China+Kalyani+Nagar+Pune",
+    "reviews": 2100,
+    "price": "₹800–1500"
+  },
+  {
+    "id": 24,
+    "name": "Smoke House Deli",
+    "area": "Kalyani Nagar",
+    "cuisine": "Cafe",
+    "rating": 4.5,
+    "budget": "₹₹₹",
+    "mustTry": "Pulled Pork Sandwich",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "The buzzy all-day café with artisan sandwiches, single-origin coffee, and one of KN's best brunches.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Smoke+House+Deli+Kalyani+Nagar+Pune",
+    "reviews": 2800,
+    "price": "₹600–1000"
+  },
+  {
+    "id": 25,
+    "name": "Prems Graama Bhojanam",
+    "area": "Shivajinagar",
+    "cuisine": "South Indian",
+    "rating": 4.7,
+    "budget": "₹",
+    "mustTry": "Ghee Pongal",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Authentic village-style Tamil cooking. Banana leaf meals at lunch are a weekly ritual for hundreds of Puneites.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=Prems+Graama+Bhojanam+Shivajinagar+Pune",
+    "reviews": 3800,
+    "price": "₹150–350"
+  },
+  {
+    "id": 26,
+    "name": "Mainland China",
+    "area": "Shivajinagar",
+    "cuisine": "Chinese",
+    "rating": 4.4,
+    "budget": "₹₹₹",
+    "mustTry": "Dim Sum Platter",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "family",
+      "date"
+    ],
+    "desc": "The national chain's Pune outpost does consistent, quality Chinese. Dim sum brunch on Sunday is great value.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=Mainland+China+Shivajinagar+Pune",
+    "reviews": 2200,
+    "price": "₹700–1300"
+  },
+  {
+    "id": 27,
+    "name": "The Flour Box",
+    "area": "Hadapsar",
+    "cuisine": "Cafe",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Cinnamon Roll",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Hadapsar's secret bakery that the east Pune crowd fiercely protects. Daily fresh bakes and specialty coffee.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Flour+Box+Hadapsar+Pune",
+    "reviews": 890,
+    "price": "₹300–600"
+  },
+  {
+    "id": 28,
+    "name": "Biryani Park",
+    "area": "Hadapsar",
+    "cuisine": "Biryani",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Chicken Dum Biryani",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Hadapsar's biryani institution. Long queues at lunch are a testament to the authentic recipe.",
+    "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80",
+    "map": "https://maps.google.com/?q=Biryani+Park+Hadapsar+Pune",
+    "reviews": 3100,
+    "price": "₹200–400"
+  },
+  {
+    "id": 29,
+    "name": "PCMC Dhaba",
+    "area": "PCMC",
+    "cuisine": "North Indian",
+    "rating": 4.3,
+    "budget": "₹",
+    "mustTry": "Butter Chicken",
+    "crowd": "high",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "PCMC's most popular dhaba-style restaurant. Generous portions, real tandoor, and prices that make sense.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=PCMC+Dhaba+Pune",
+    "reviews": 2800,
+    "price": "₹150–350"
+  },
+  {
+    "id": 30,
+    "name": "PCMC Misal",
+    "area": "PCMC",
+    "cuisine": "Maharashtrian",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Kat Misal",
+    "crowd": "high",
+    "tags": [
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "PCMC's answer to the great Pune misal debate. Their kat (gravy) has a devoted following in Pimpri-Chinchwad.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=PCMC+Misal+Pune",
+    "reviews": 2100,
+    "price": "₹80–200"
+  },
+  {
+    "id": 31,
+    "name": "Café Goodluck",
+    "area": "Deccan",
+    "cuisine": "Cafe",
+    "rating": 4.7,
+    "budget": "₹",
+    "mustTry": "Bun Maska & Irani Chai",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "One of Pune's most legendary breakfast spots. The line at 8AM is just part of the ritual.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Café+Goodluck+Deccan+Pune",
+    "reviews": 6800,
+    "price": "₹50–200"
+  },
+  {
+    "id": 60,
+    "name": "Shabari",
+    "area": "Kothrud",
+    "cuisine": "South Indian",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Neer Dosa",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Authentic Mangalorean and Kerala coastal food tucked in Kothrud. Their Neer Dosa and Prawn Ghee Roast combination has a devoted following.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=Shabari+Kothrud+Pune",
+    "reviews": 1800,
+    "price": "₹150–300"
+  },
+  {
+    "id": 61,
+    "name": "Elephant & Co.",
+    "area": "Koregaon Park",
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Pulled Pork Slider",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "One of KP's most beloved all-day hangouts. The rooftop terrace on a Pune winter evening is an experience regulars call their happiest weekly ritual.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Elephant+&+Co.+Koregaon+Park+Pune",
+    "reviews": 3800,
+    "price": "₹450–800"
+  },
+  {
+    "id": 62,
+    "name": "Swig",
+    "area": "Koregaon Park",
+    "cuisine": "Cafe",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Peri Peri Fries",
+    "crowd": "high",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "KP's most buzzing cocktail bar. The Peri Peri Fries and loaded nachos are designed to be eaten with drinks.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Swig+Koregaon+Park+Pune",
+    "reviews": 3500,
+    "price": "₹400–800"
+  },
+  {
+    "id": 63,
+    "name": "The Permit Room",
+    "area": "Koregaon Park",
+    "cuisine": "South Indian",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Appam & Stew",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "South Indian food reimagined through a cocktail bar lens. Their Filter Kaapi cocktail and Kerala Beef Fry is one of KP's most talked-about orders.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Permit+Room+Koregaon+Park+Pune",
+    "reviews": 2900,
+    "price": "₹500–900"
+  },
+  {
+    "id": 64,
+    "name": "Café Mezzuna",
+    "area": "Koregaon Park",
+    "cuisine": "Italian",
+    "rating": 4.5,
+    "budget": "₹₹₹",
+    "mustTry": "Aglio e Olio",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "date"
+    ],
+    "desc": "KP's elegant Italian patio experience. Live jazz on weekends and an Aglio e Olio that might be the best in the city.",
+    "img": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80",
+    "map": "https://maps.google.com/?q=Café+Mezzuna+Koregaon+Park+Pune",
+    "reviews": 2400,
+    "price": "₹600–1000"
+  },
+  {
+    "id": 65,
+    "name": "Hard Rock Café",
+    "area": "Koregaon Park",
+    "cuisine": "Cafe",
+    "rating": 4.3,
+    "budget": "₹₹₹",
+    "mustTry": "Legendary Burger",
+    "crowd": "high",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "The global rock institution with Pune energy. Memorabilia from legends cover every wall and live music nights are genuinely electric.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Hard+Rock+Café+Koregaon+Park+Pune",
+    "reviews": 5200,
+    "price": "₹700–1200"
+  },
+  {
+    "id": 66,
+    "name": "Kayani Bakery",
+    "area": "Camp",
+    "cuisine": "Cafe",
+    "rating": 4.9,
+    "budget": "₹",
+    "mustTry": "Shrewsbury Biscuits",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "The most legendary bakery in Pune since 1955. Shrewsbury biscuits sell out — no exceptions. Open till 1PM only.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Kayani+Bakery+Camp+Pune",
+    "reviews": 9200,
+    "price": "₹50–200"
+  },
+  {
+    "id": 67,
+    "name": "George Restaurant",
+    "area": "Camp",
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Chicken Kiev",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Since 1937, George has been the Continental anchor of Camp. Their Caramel Custard and Fish & Chips have been ordered by every generation.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=George+Restaurant+Camp+Pune",
+    "reviews": 3400,
+    "price": "₹200–500"
+  },
+  {
+    "id": 68,
+    "name": "Dorabjee's Deli",
+    "area": "Camp",
+    "cuisine": "Cafe",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Cold Cuts",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Since 1878, Pune's most beloved heritage deli. Cold cuts, imported cheese and freshly baked bread remain unmatched.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Dorabjees+Deli+Camp+Pune",
+    "reviews": 2100,
+    "price": "₹150–400"
+  },
+  {
+    "id": 69,
+    "name": "Place of Origin",
+    "area": "Camp",
+    "cuisine": "North Indian",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Assamese Pork",
+    "crowd": "mid",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Regional Indian cuisines from across the country under one roof — from Assamese pork to Chettinad chicken.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Place+of+Origin+Camp+Pune",
+    "reviews": 1300,
+    "price": "₹400–700"
+  },
+  {
+    "id": 70,
+    "name": "Café Sunrise",
+    "area": "Deccan",
+    "cuisine": "Maharashtrian",
+    "rating": 4.7,
+    "budget": "₹",
+    "mustTry": "Misal Pav",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "The most beloved morning café on Deccan Gymkhana. Their Misal Pav has been Pune's morning ritual for generations.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Café+Sunrise+Deccan+Pune",
+    "reviews": 5600,
+    "price": "₹80–200"
+  },
+  {
+    "id": 71,
+    "name": "Malwani Mattha",
+    "area": "Deccan",
+    "cuisine": "Maharashtrian",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Crab Masala",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Authentic Malwani coastal cooking where the crab masala makes you forget the outside world.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Malwani+Mattha+Deccan+Pune",
+    "reviews": 2200,
+    "price": "₹150–350"
+  },
+  {
+    "id": 72,
+    "name": "Cream Centre",
+    "area": "Deccan",
+    "cuisine": "North Indian",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Paneer Tikka",
+    "crowd": "high",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "The vegetarian institution that has satisfied families across generations. Their sizzlers are legendary.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Cream+Centre+Deccan+Pune",
+    "reviews": 3100,
+    "price": "₹300–600"
+  },
+  {
+    "id": 73,
+    "name": "Bedekar Tea Stall",
+    "area": "Narayan Peth",
+    "cuisine": "Cafe",
+    "rating": 4.8,
+    "budget": "₹",
+    "mustTry": "Masala Chai",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Since 1921, the most legendary chai stall in all of Pune. Standing room only — and nobody complains.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Bedekar+Tea+Stall+Narayan+Peth+Pune",
+    "reviews": 4100,
+    "price": "₹20–80"
+  },
+  {
+    "id": 74,
+    "name": "Chitale Bandhu",
+    "area": "Sadashiv Peth",
+    "cuisine": "Desserts",
+    "rating": 4.8,
+    "budget": "₹",
+    "mustTry": "Bakarwadi",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "The most iconic mithai shop in Pune since 1950. Their Bakarwadi is the definitive version and is shipped worldwide.",
+    "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80",
+    "map": "https://maps.google.com/?q=Chitale+Bandhu+Mithaiwale+Sadashiv+Peth+Pune",
+    "reviews": 7200,
+    "price": "₹50–400"
+  },
+  {
+    "id": 75,
+    "name": "Ministry of Crab",
+    "area": "Baner",
+    "cuisine": "South Indian",
+    "rating": 4.7,
+    "budget": "₹₹₹",
+    "mustTry": "Sri Lankan Crab",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "The award-winning Sri Lankan seafood restaurant now in Pune. Book weeks ahead for weekends.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=Ministry+of+Crab+Baner+Pune",
+    "reviews": 2800,
+    "price": "₹1200–2500"
+  },
+  {
+    "id": 76,
+    "name": "SodaBottleOpenerWala",
+    "area": "Baner",
+    "cuisine": "Cafe",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Berry Pulao",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "The beloved Irani café concept — equal parts heritage and fun. Berry Pulao and Sali Boti are the stars.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=SodaBottleOpenerWala+Baner+Pune",
+    "reviews": 2300,
+    "price": "₹400–700"
+  },
+  {
+    "id": 77,
+    "name": "Fog & Fennel",
+    "area": "Baner",
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Truffle Mushroom Toast",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Baner's most photogenic café — botanical walls, single-origin coffee and a brunch menu that earns its Instagram fame.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Fog+&+Fennel+Baner+Pune",
+    "reviews": 1340,
+    "price": "₹500–850"
+  },
+  {
+    "id": 78,
+    "name": "House of Mandarin",
+    "area": "Wakad",
+    "cuisine": "Chinese",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Prawn Har Gow",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "Wakad's most serious Chinese kitchen. Proper dim sum handmade every morning.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=House+of+Mandarin+Wakad+Pune",
+    "reviews": 2050,
+    "price": "₹450–750"
+  },
+  {
+    "id": 79,
+    "name": "Gong",
+    "area": "Wakad",
+    "cuisine": "Chinese",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Lamb Bao",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "Wakad's sleekest Pan-Asian dining room. Low lighting, curated cocktails and a menu that moves from Japanese to Chinese to Southeast Asian.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=Gong+Wakad+Pune",
+    "reviews": 1750,
+    "price": "₹500–900"
+  },
+  {
+    "id": 80,
+    "name": "Dessert Stories",
+    "area": "Baner",
+    "cuisine": "Desserts",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Chocolate Lava Cake",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Baner's dessert destination. The chocolate lava cake comes tableside and the Instagram value is real.",
+    "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80",
+    "map": "https://maps.google.com/?q=Dessert+Stories+Baner+Pune",
+    "reviews": 1650,
+    "price": "₹300–600"
+  },
+  {
+    "id": 81,
+    "name": "Hotel Shreyas",
+    "area": "Deccan",
+    "cuisine": "Maharashtrian",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Thalipeeth",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Deccan's famous vegetarian Maharashtrian restaurant. The Thalipeeth with white butter is pure Pune soul food.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Hotel+Shreyas+Deccan+Pune",
+    "reviews": 3400,
+    "price": "₹200–400"
+  },
+  {
+    "id": 83,
+    "name": "Nimkar Tea Stall",
+    "area": "Narayan Peth",
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Kulhad Chai",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "The original kulhad chai spot of old Pune. Standing beside regulars who've been coming for 30 years is humbling.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Nimkar+Tea+Stall+Narayan+Peth+Pune",
+    "reviews": 1200,
+    "price": "₹15–60"
+  },
+  {
+    "id": 84,
+    "name": "The Biryani Shop",
+    "area": "Hadapsar",
+    "cuisine": "Biryani",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Lamb Dum Biryani",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Hadapsar's most dedicated biryani kitchen. The Lamb Dum Biryani is slow-cooked for hours and worth every minute.",
+    "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Biryani+Shop+Hadapsar+Pune",
+    "reviews": 2100,
+    "price": "₹250–450"
+  },
+  {
+    "id": 85,
+    "name": "The Breakfast Club",
+    "area": "Aundh",
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Full English",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "The definitive all-day breakfast spot in Aundh. Bottomless coffee, eggs cooked exactly as ordered.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Breakfast+Club+Aundh+Pune",
+    "reviews": 1900,
+    "price": "₹350–650"
+  },
+  {
+    "id": 86,
+    "name": "The Fisherman's Wharf",
+    "area": "Aundh",
+    "cuisine": "South Indian",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Kolambi Masala",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Coastal Maharashtrian and Goan seafood executed so well that regulars come from across the city.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Fishermans+Wharf+Aundh+Pune",
+    "reviews": 3100,
+    "price": "₹400–700"
+  },
+  {
+    "id": 87,
+    "name": "Smoke & Spice",
+    "area": "Aundh",
+    "cuisine": "North Indian",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Smoked Brisket",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Pune's most serious BBQ kitchen. Their 14-hour Smoked Brisket tastes exactly like that much effort.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Smoke+&+Spice+Aundh+Pune",
+    "reviews": 2100,
+    "price": "₹500–900"
+  },
+  {
+    "id": 88,
+    "name": "Chulha Chauka",
+    "area": "Hinjewadi",
+    "cuisine": "North Indian",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Rajasthani Thali",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Rustic home-style Rajasthani cooking. Weekend Dal Baati Churma is something genuinely special.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Chulha+Chauka+Hinjewadi+Pune",
+    "reviews": 2200,
+    "price": "₹250–450"
+  },
+  {
+    "id": 89,
+    "name": "The Daily Grind",
+    "area": "Hinjewadi",
+    "cuisine": "Cafe",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Pour Over",
+    "crowd": "mid",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Third-wave coffee done right in IT Park. Single-origin pour-overs, fast WiFi, and enough power outlets for the entire team.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Daily+Grind+Hinjewadi+Pune",
+    "reviews": 1890,
+    "price": "₹300–600"
+  },
+  {
+    "id": 90,
+    "name": "Shabree Sinhgad",
+    "area": "Sinhgad Road",
+    "cuisine": "Maharashtrian",
+    "rating": 4.7,
+    "budget": "₹",
+    "mustTry": "Misal Pav",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "The Sinhgad Road outpost of the iconic Shabree brand. Same uncompromising Misal Pav, same fiercely loyal breakfast crowd.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Shabree+Sinhgad+Sinhgad+Road+Pune",
+    "reviews": 3200,
+    "price": "₹100–250"
+  },
+  {
+    "id": 91,
+    "name": "Hotel Sinhgad Vaishali",
+    "area": "Sinhgad Road",
+    "cuisine": "South Indian",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Masala Dosa",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "The Sinhgad Road institution for South Indian comfort food. Their Filter Coffee is legitimately great.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=Hotel+Sinhgad+Vaishali+Sinhgad+Road+Pune",
+    "reviews": 2100,
+    "price": "₹80–220"
+  },
+  {
+    "id": 92,
+    "name": "Panchali",
+    "area": "Sinhgad Road",
+    "cuisine": "Maharashtrian",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Maharashtrian Thali",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Sinhgad Road's best unlimited Maharashtrian thali — home-style cooking with generous portions.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Panchali+Sinhgad+Road+Pune",
+    "reviews": 1800,
+    "price": "₹150–300"
+  },
+  {
+    "id": 93,
+    "name": "Cafe Indulge",
+    "area": "Sinhgad Road",
+    "cuisine": "Cafe",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Cold Brew",
+    "crowd": "low",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "A cosy neighbourhood café that Sinhgad Road residents treat as their living room. Reliable cold brew and honest sandwiches.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Cafe+Indulge+Sinhgad+Road+Pune",
+    "reviews": 1100,
+    "price": "₹250–500"
+  },
+  {
+    "id": 94,
+    "name": "Dhaba 59",
+    "area": "Sinhgad Road",
+    "cuisine": "North Indian",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Dal Tadka",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "The late-night dhaba that Sinhgad Road residents rally around. Open till 1AM on weekends — the Dal Tadka at 11PM hits different.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Dhaba+59+Sinhgad+Road+Pune",
+    "reviews": 2400,
+    "price": "₹200–400"
+  },
+  {
+    "id": 95,
+    "name": "Sinhgad Fort View",
+    "area": "Sinhgad Road",
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Bhaji Pav",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "The café at the base of Sinhgad Fort road with the view that makes everything taste better.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Sinhgad+Fort+View+Café+Sinhgad+Road+Pune",
+    "reviews": 3100,
+    "price": "₹100–250"
+  },
+  {
+    "id": 100,
+    "name": "Thai Thali",
+    "area": "Koregaon Park",
+    "cuisine": "Thai",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Green Curry",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "KP's most authentic Thai kitchen. Hand-pounded curry pastes and a Green Curry that makes you close your eyes.",
+    "img": "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=400&q=80",
+    "map": "https://maps.google.com/?q=Thai+Thali+Koregaon+Park+Pune",
+    "reviews": 1800,
+    "price": "₹500–900"
+  },
+  {
+    "id": 101,
+    "name": "Bangkok Bites",
+    "area": "Viman Nagar",
+    "cuisine": "Thai",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Pad Thai",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Viman Nagar's go-to for late-night Thai. The Pad Thai is textbook-perfect and the Tom Yum soup packs a punch.",
+    "img": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=400&q=80",
+    "map": "https://maps.google.com/?q=Bangkok+Bites+Viman+Nagar+Pune",
+    "reviews": 1420,
+    "price": "₹400–750"
+  },
+  {
+    "id": 102,
+    "name": "Lemongrass",
+    "area": "Baner",
+    "cuisine": "Thai",
+    "rating": 4.7,
+    "budget": "₹₹₹",
+    "mustTry": "Massaman Curry",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "date",
+      "friends"
+    ],
+    "desc": "Pune's most celebrated Thai restaurant. The Massaman Curry is slow-braised and genuinely complex.",
+    "img": "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=400&q=80",
+    "map": "https://maps.google.com/?q=Lemongrass+Baner+Pune",
+    "reviews": 2900,
+    "price": "₹700–1200"
+  },
+  {
+    "id": 103,
+    "name": "Tuk Tuk",
+    "area": "Kalyani Nagar",
+    "cuisine": "Thai",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Papaya Salad",
+    "crowd": "low",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "A hidden Thai gem in KN with a street-food vibe. Their Som Tam papaya salad is dangerously addictive.",
+    "img": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=400&q=80",
+    "map": "https://maps.google.com/?q=Tuk+Tuk+Kalyani+Nagar+Pune",
+    "reviews": 980,
+    "price": "₹350–650"
+  },
+  {
+    "id": 104,
+    "name": "Sakura",
+    "area": "Koregaon Park",
+    "cuisine": "Japanese",
+    "rating": 4.7,
+    "budget": "₹₹₹",
+    "mustTry": "Salmon Sashimi",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "date",
+      "friends"
+    ],
+    "desc": "Pune's best Japanese. Omakase-style sashimi platter and hand-rolled sushi that rival Mumbai's finest.",
+    "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&q=80",
+    "map": "https://maps.google.com/?q=Sakura+Koregaon+Park+Pune",
+    "reviews": 2100,
+    "price": "₹900–1800"
+  },
+  {
+    "id": 105,
+    "name": "Ramen Republic",
+    "area": "Baner",
+    "cuisine": "Japanese",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Tonkotsu Ramen",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "18-hour pork bone broth, wavy noodles, and a soft egg. The Tonkotsu Ramen here is a religious experience.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=Ramen+Republic+Baner+Pune",
+    "reviews": 1750,
+    "price": "₹500–850"
+  },
+  {
+    "id": 106,
+    "name": "Izakaya",
+    "area": "Viman Nagar",
+    "cuisine": "Japanese",
+    "rating": 4.5,
+    "budget": "₹₹₹",
+    "mustTry": "Gyoza",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "date",
+      "friends"
+    ],
+    "desc": "A proper Japanese gastropub. Pan-fried gyoza, cold Sapporo, and yakitori skewers done exactly right.",
+    "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&q=80",
+    "map": "https://maps.google.com/?q=Izakaya+Viman+Nagar+Pune",
+    "reviews": 1340,
+    "price": "₹700–1300"
+  },
+  {
+    "id": 107,
+    "name": "Nori",
+    "area": "Kalyani Nagar",
+    "cuisine": "Japanese",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Dragon Roll",
+    "crowd": "low",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "date",
+      "insta"
+    ],
+    "desc": "A quiet neighbourhood sushi bar that KN regulars guard jealously. The Dragon Roll is a showstopper.",
+    "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&q=80",
+    "map": "https://maps.google.com/?q=Nori+Kalyani+Nagar+Pune",
+    "reviews": 890,
+    "price": "₹500–950"
+  },
+  {
+    "id": 108,
+    "name": "Coastal Kitchen",
+    "area": "Koregaon Park",
+    "cuisine": "Seafood",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Butter Garlic Crab",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family",
+      "friends"
+    ],
+    "desc": "The best coastal seafood in Pune. Butter garlic crab flown in from Goa and Malvani fish curry that's pure soul.",
+    "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80",
+    "map": "https://maps.google.com/?q=Coastal+Kitchen+Koregaon+Park+Pune",
+    "reviews": 3200,
+    "price": "₹600–1100"
+  },
+  {
+    "id": 109,
+    "name": "Goa Shack",
+    "area": "Baner",
+    "cuisine": "Seafood",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Prawn Recheado",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family",
+      "friends"
+    ],
+    "desc": "Goan beach shack vibes in the middle of Baner. Their Prawn Recheado masala is the real deal.",
+    "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80",
+    "map": "https://maps.google.com/?q=Goa+Shack+Baner+Pune",
+    "reviews": 1900,
+    "price": "₹450–800"
+  },
+  {
+    "id": 110,
+    "name": "Bombil & Beyond",
+    "area": "Camp",
+    "cuisine": "Seafood",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Bombil Fry",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Camp's best-kept seafood secret. Crispy Bombil fry and Surmai curry cooked exactly how old Pune families like it.",
+    "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80",
+    "map": "https://maps.google.com/?q=Bombil+%26+Beyond+Camp+Pune",
+    "reviews": 1500,
+    "price": "₹400–750"
+  },
+  {
+    "id": 111,
+    "name": "The Lobster Trap",
+    "area": "Kalyani Nagar",
+    "cuisine": "Seafood",
+    "rating": 4.8,
+    "budget": "₹₹₹",
+    "mustTry": "Lobster Thermidor",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "date",
+      "friends"
+    ],
+    "desc": "Pune's premium seafood destination. Lobster Thermidor for special occasions, Grilled Pomfret for every Tuesday.",
+    "img": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Lobster+Trap+Kalyani+Nagar+Pune",
+    "reviews": 1800,
+    "price": "₹1200–2500"
+  },
+  {
+    "id": 112,
+    "name": "Casa Mexico",
+    "area": "Koregaon Park",
+    "cuisine": "Mexican",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Chicken Burrito",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "KP's liveliest Mexican joint. Massive burritos, loaded nachos, and margaritas that hit the right spot.",
+    "img": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=80",
+    "map": "https://maps.google.com/?q=Casa+Mexico+Koregaon+Park+Pune",
+    "reviews": 2100,
+    "price": "₹450–800"
+  },
+  {
+    "id": 113,
+    "name": "Taco Town",
+    "area": "Baner",
+    "cuisine": "Mexican",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Fish Tacos",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Baner's taco specialists. The crispy fish tacos with mango salsa are genuinely craveable.",
+    "img": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=80",
+    "map": "https://maps.google.com/?q=Taco+Town+Baner+Pune",
+    "reviews": 1350,
+    "price": "₹350–650"
+  },
+  {
+    "id": 114,
+    "name": "El Rancho",
+    "area": "Viman Nagar",
+    "cuisine": "Mexican",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Quesadilla",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "date"
+    ],
+    "desc": "A colourful Mexican cantina with the best quesadillas in town and a guacamole made fresh tableside.",
+    "img": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=80",
+    "map": "https://maps.google.com/?q=El+Rancho+Viman+Nagar+Pune",
+    "reviews": 1600,
+    "price": "₹400–750"
+  },
+  {
+    "id": 115,
+    "name": "The Grille Room",
+    "area": "Koregaon Park",
+    "cuisine": "Continental",
+    "rating": 4.7,
+    "budget": "₹₹₹",
+    "mustTry": "Beef Tenderloin",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "date",
+      "friends"
+    ],
+    "desc": "KP's finest steakhouse. Dry-aged cuts, classic French sauces, and a wine list that does justice to the food.",
+    "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Grille+Room+Koregaon+Park+Pune",
+    "reviews": 2200,
+    "price": "₹1200–2200"
+  },
+  {
+    "id": 116,
+    "name": "Bistro Bleu",
+    "area": "Baner",
+    "cuisine": "Continental",
+    "rating": 4.6,
+    "budget": "₹₹₹",
+    "mustTry": "French Onion Soup",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "date",
+      "friends"
+    ],
+    "desc": "A charming French bistro with crispy croque monsieurs, proper French onion soup, and crème brûlée done right.",
+    "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80",
+    "map": "https://maps.google.com/?q=Bistro+Bleu+Baner+Pune",
+    "reviews": 1400,
+    "price": "₹800–1400"
+  },
+  {
+    "id": 117,
+    "name": "The Brasserie",
+    "area": "Kalyani Nagar",
+    "cuisine": "Continental",
+    "rating": 4.5,
+    "budget": "₹₹₹",
+    "mustTry": "Eggs Benedict",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "date",
+      "insta"
+    ],
+    "desc": "KN's most elegant all-day dining. The weekend brunch is a Pune institution — Eggs Benedict with smoked salmon.",
+    "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Brasserie+Kalyani+Nagar+Pune",
+    "reviews": 1900,
+    "price": "₹700–1300"
+  },
+  {
+    "id": 118,
+    "name": "Fork & Knife",
+    "area": "Aundh",
+    "cuisine": "Continental",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Pasta Primavera",
+    "crowd": "mid",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "date",
+      "friends"
+    ],
+    "desc": "A cosy neighbourhood European eatery doing honest pasta, wood-fired chicken and proper tiramisu.",
+    "img": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80",
+    "map": "https://maps.google.com/?q=Fork+%26+Knife+Aundh+Pune",
+    "reviews": 1100,
+    "price": "₹500–900"
+  },
+  {
+    "id": 119,
+    "name": "Pit Stop BBQ",
+    "area": "Baner",
+    "cuisine": "BBQ",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Pork Ribs",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "Baner's BBQ powerhouse. The 6-hour smoked pork ribs fall off the bone and come with killer coleslaw.",
+    "img": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&q=80",
+    "map": "https://maps.google.com/?q=Pit+Stop+BBQ+Baner+Pune",
+    "reviews": 2000,
+    "price": "₹600–1100"
+  },
+  {
+    "id": 120,
+    "name": "Smokehouse Deli",
+    "area": "Koregaon Park",
+    "cuisine": "BBQ",
+    "rating": 4.7,
+    "budget": "₹₹₹",
+    "mustTry": "Smoked Brisket Platter",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "The benchmark for BBQ in Pune. Their smoked brisket platter with three sides is the kind of meal you plan your week around.",
+    "img": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&q=80",
+    "map": "https://maps.google.com/?q=Smokehouse+Deli+Koregaon+Park+Pune",
+    "reviews": 3100,
+    "price": "₹800–1500"
+  },
+  {
+    "id": 121,
+    "name": "Coal & Fire",
+    "area": "Wakad",
+    "cuisine": "BBQ",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Chicken Wings",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Wakad's late-night BBQ spot. Charcoal-grilled wings in 6 sauces and cold beer — exactly what the weekend calls for.",
+    "img": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&q=80",
+    "map": "https://maps.google.com/?q=Coal+%26+Fire+Wakad+Pune",
+    "reviews": 1600,
+    "price": "₹450–850"
+  },
+  {
+    "id": 122,
+    "name": "The Grill House",
+    "area": "Hinjewadi",
+    "cuisine": "BBQ",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Mixed Grill Platter",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "Hinjewadi's favourite post-work grill. Mixed platters with seekh kebab, wings and corn hit the spot after a long day.",
+    "img": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Grill+House+Hinjewadi+Pune",
+    "reviews": 1400,
+    "price": "₹400–800"
+  },
+  {
+    "id": 123,
+    "name": "Bread & Butter",
+    "area": "Baner",
+    "cuisine": "Bakery",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Croissant",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Pune's best croissants, full stop. Laminated to golden perfection every morning from 7AM. Get there early.",
+    "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80",
+    "map": "https://maps.google.com/?q=Bread+%26+Butter+Baner+Pune",
+    "reviews": 2200,
+    "price": "₹200–500"
+  },
+  {
+    "id": 124,
+    "name": "The Oven",
+    "area": "Koregaon Park",
+    "cuisine": "Bakery",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Sourdough Loaf",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "KP's artisan bakery with a sourdough starter that's been alive for 5 years. Weekend loaves sell out by 9AM.",
+    "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Oven+Koregaon+Park+Pune",
+    "reviews": 1800,
+    "price": "₹250–600"
+  },
+  {
+    "id": 125,
+    "name": "Crumbs & Co",
+    "area": "Aundh",
+    "cuisine": "Bakery",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Cinnamon Roll",
+    "crowd": "mid",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "A tiny neighbourhood bakery that Aundh residents start their mornings with. The giant cinnamon rolls are genuinely great.",
+    "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80",
+    "map": "https://maps.google.com/?q=Crumbs+%26+Co+Aundh+Pune",
+    "reviews": 1100,
+    "price": "₹150–400"
+  },
+  {
+    "id": 126,
+    "name": "Flour Power",
+    "area": "Kalyani Nagar",
+    "cuisine": "Bakery",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Kouign-Amann",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "KN's cult-status patisserie. The Kouign-Amann is criminally underrated and the eclairs are flawless.",
+    "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80",
+    "map": "https://maps.google.com/?q=Flour+Power+Kalyani+Nagar+Pune",
+    "reviews": 1500,
+    "price": "₹200–550"
+  },
+  {
+    "id": 127,
+    "name": "Pumpernickel",
+    "area": "Camp",
+    "cuisine": "Bakery",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "German Rye Bread",
+    "crowd": "low",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Camp's old-school European bakery. German rye, seeded baguettes and proper butter cookies that feel like 1985.",
+    "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80",
+    "map": "https://maps.google.com/?q=Pumpernickel+Camp+Pune",
+    "reviews": 900,
+    "price": "₹180–450"
+  },
+  {
+    "id": 128,
+    "name": "Green Bowl",
+    "area": "Baner",
+    "cuisine": "Vegan",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Acai Bowl",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Baner's most popular health-food café. The Acai Bowl with granola and fresh fruit is worth every calorie (or lack thereof).",
+    "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80",
+    "map": "https://maps.google.com/?q=Green+Bowl+Baner+Pune",
+    "reviews": 1700,
+    "price": "₹350–700"
+  },
+  {
+    "id": 129,
+    "name": "The Salad Bar",
+    "area": "Koregaon Park",
+    "cuisine": "Vegan",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Buddha Bowl",
+    "crowd": "mid",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Pune's first serious plant-based kitchen. Build-your-own Buddha Bowls with 25 toppings and excellent cold-pressed juices.",
+    "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Salad+Bar+Koregaon+Park+Pune",
+    "reviews": 1400,
+    "price": "₹300–650"
+  },
+  {
+    "id": 130,
+    "name": "Earthen Cafe",
+    "area": "Kothrud",
+    "cuisine": "Vegan",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Ragi Dosa",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "family",
+      "friends"
+    ],
+    "desc": "Kothrud's organic, plant-forward café doing millets, ragi and zero-waste cooking. The Ragi Dosa with sambhar is exceptional.",
+    "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80",
+    "map": "https://maps.google.com/?q=Earthen+Cafe+Kothrud+Pune",
+    "reviews": 1200,
+    "price": "₹150–350"
+  },
+  {
+    "id": 131,
+    "name": "Nirvana Vegan",
+    "area": "Aundh",
+    "cuisine": "Vegan",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Jackfruit Burger",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "The jackfruit burger that converted Pune's meat lovers. Creative plant-based comfort food that doesn't feel like a compromise.",
+    "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80",
+    "map": "https://maps.google.com/?q=Nirvana+Vegan+Aundh+Pune",
+    "reviews": 1300,
+    "price": "₹300–600"
+  },
+  {
+    "id": 132,
+    "name": "Seoul Kitchen",
+    "area": "Koregaon Park",
+    "cuisine": "Korean",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Korean BBQ",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Pune's first proper Korean BBQ experience. Grill-at-table with banchan, ssamjang and cold Hite beer.",
+    "img": "https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&q=80",
+    "map": "https://maps.google.com/?q=Seoul+Kitchen+Koregaon+Park+Pune",
+    "reviews": 1900,
+    "price": "₹600–1100"
+  },
+  {
+    "id": 133,
+    "name": "K-Pop Bites",
+    "area": "Viman Nagar",
+    "cuisine": "Korean",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Bibimbap",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Viman Nagar's Korean street food café. Bibimbap, Korean fried chicken and ramyeon done with real care.",
+    "img": "https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&q=80",
+    "map": "https://maps.google.com/?q=K-Pop+Bites+Viman+Nagar+Pune",
+    "reviews": 1200,
+    "price": "₹400–800"
+  },
+  {
+    "id": 134,
+    "name": "Kimchi House",
+    "area": "Baner",
+    "cuisine": "Korean",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Kimchi Jjigae",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "A small, serious Korean kitchen in Baner where homesick Koreans from the IT park come for comfort food.",
+    "img": "https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&q=80",
+    "map": "https://maps.google.com/?q=Kimchi+House+Baner+Pune",
+    "reviews": 950,
+    "price": "₹400–750"
+  },
+  {
+    "id": 135,
+    "name": "Olive Garden",
+    "area": "Koregaon Park",
+    "cuisine": "Mediterranean",
+    "rating": 4.7,
+    "budget": "₹₹₹",
+    "mustTry": "Mezze Platter",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "date",
+      "friends"
+    ],
+    "desc": "An alfresco Mediterranean escape in KP. Mezze platters, wood-fired flatbreads, and Lebanese wine under fairy lights.",
+    "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80",
+    "map": "https://maps.google.com/?q=Olive+Garden+Koregaon+Park+Pune",
+    "reviews": 2400,
+    "price": "₹800–1500"
+  },
+  {
+    "id": 136,
+    "name": "Hummus & Co",
+    "area": "Baner",
+    "cuisine": "Mediterranean",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Shakshuka",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Baner's Israeli-Mediterranean café. The Shakshuka is the best in Pune and the hummus is made fresh every hour.",
+    "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80",
+    "map": "https://maps.google.com/?q=Hummus+%26+Co+Baner+Pune",
+    "reviews": 1500,
+    "price": "₹400–800"
+  },
+  {
+    "id": 137,
+    "name": "The Pita Place",
+    "area": "Kalyani Nagar",
+    "cuisine": "Mediterranean",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Falafel Wrap",
+    "crowd": "mid",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "KN's under-the-radar Mediterranean spot. Crispy falafel wraps, fattoush salad and baklava that's flown in from Dubai.",
+    "img": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Pita+Place+Kalyani+Nagar+Pune",
+    "reviews": 1000,
+    "price": "₹350–700"
+  },
+  {
+    "id": 138,
+    "name": "Vada Pav Corner",
+    "area": "Shivajinagar",
+    "cuisine": "Street Food",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Vada Pav",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "The vada pav that Shivajinagar office-goers have eaten every day for 20 years. Dry garlic chutney is the secret weapon.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Vada+Pav+Corner+Shivajinagar+Pune",
+    "reviews": 4100,
+    "price": "₹20–60"
+  },
+  {
+    "id": 139,
+    "name": "Bun Maska Studio",
+    "area": "Camp",
+    "cuisine": "Street Food",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Bun Maska Chai",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Camp's most photogenic Irani café snack stop. Bun Maska with thick Irani chai — the original Pune power breakfast.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Bun+Maska+Studio+Camp+Pune",
+    "reviews": 2200,
+    "price": "₹40–120"
+  },
+  {
+    "id": 140,
+    "name": "Chaat Chowk",
+    "area": "Deccan",
+    "cuisine": "Street Food",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Pani Puri",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "Deccan's most beloved chaat counter. The pani puri water is pure Mumbai-style and the bhel puri is perfectly assembled.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Chaat+Chowk+Deccan+Pune",
+    "reviews": 3500,
+    "price": "₹30–150"
+  },
+  {
+    "id": 141,
+    "name": "Kanda Bhaji Stall",
+    "area": "Narayan Peth",
+    "cuisine": "Street Food",
+    "rating": 4.7,
+    "budget": "₹",
+    "mustTry": "Kanda Bhaji",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "gem",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "The kanda bhaji stall that old Pune swears by. Served piping hot in newspaper, best eaten in the rain.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Kanda+Bhaji+Stall+Narayan+Peth+Pune",
+    "reviews": 2900,
+    "price": "₹30–100"
+  },
+  {
+    "id": 142,
+    "name": "Dabeli Den",
+    "area": "Kothrud",
+    "cuisine": "Street Food",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Kutchi Dabeli",
+    "crowd": "mid",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Authentic Kutchi Dabeli in Kothrud — sweet, spicy, tangy all at once. The peanut and pomegranate topping makes it.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Dabeli+Den+Kothrud+Pune",
+    "reviews": 1400,
+    "price": "₹25–80"
+  },
+  {
+    "id": 143,
+    "name": "Pizza Primitivo",
+    "area": "Koregaon Park",
+    "cuisine": "Pizza",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Margherita",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "date"
+    ],
+    "desc": "Neapolitan-style pizza with 00 flour dough and a wood-fired oven that hits 450°C. The Margherita is a revelation.",
+    "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80",
+    "map": "https://maps.google.com/?q=Pizza+Primitivo+Koregaon+Park+Pune",
+    "reviews": 2600,
+    "price": "₹500–900"
+  },
+  {
+    "id": 144,
+    "name": "Slice of Heaven",
+    "area": "Baner",
+    "cuisine": "Pizza",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "BBQ Chicken Pizza",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "New York-style pizza by the slice in Baner. Massive, foldable slices with quality toppings and proper mozzarella.",
+    "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80",
+    "map": "https://maps.google.com/?q=Slice+of+Heaven+Baner+Pune",
+    "reviews": 1800,
+    "price": "₹350–700"
+  },
+  {
+    "id": 145,
+    "name": "Dough & Co",
+    "area": "Viman Nagar",
+    "cuisine": "Pizza",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Truffle Pizza",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "date"
+    ],
+    "desc": "Viman Nagar's artisan pizza bar. The truffle and mushroom pizza with fresh burrata is the kind of thing you dream about.",
+    "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80",
+    "map": "https://maps.google.com/?q=Dough+%26+Co+Viman+Nagar+Pune",
+    "reviews": 1500,
+    "price": "₹500–950"
+  },
+  {
+    "id": 146,
+    "name": "Rustica",
+    "area": "Aundh",
+    "cuisine": "Pizza",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Funghi Pizza",
+    "crowd": "mid",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "family",
+      "friends"
+    ],
+    "desc": "A cosy neighbourhood pizzeria doing honest Italian. The Funghi pizza with four mushrooms and rosemary oil is consistently great.",
+    "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80",
+    "map": "https://maps.google.com/?q=Rustica+Aundh+Pune",
+    "reviews": 1100,
+    "price": "₹400–800"
+  },
+  {
+    "id": 147,
+    "name": "Smash Bros",
+    "area": "Baner",
+    "cuisine": "Burgers",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Double Smash Burger",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Pune's smash burger obsession starts here. Crispy caramelised edges, American cheese, brioche bun — pure fast food elevated.",
+    "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80",
+    "map": "https://maps.google.com/?q=Smash+Bros+Baner+Pune",
+    "reviews": 2400,
+    "price": "₹350–650"
+  },
+  {
+    "id": 148,
+    "name": "The Patty Lab",
+    "area": "Koregaon Park",
+    "cuisine": "Burgers",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Wagyu Burger",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "KP's gourmet burger destination. A Wagyu beef patty with truffle mayo and caramelised onions on a sesame brioche.",
+    "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Patty+Lab+Koregaon+Park+Pune",
+    "reviews": 1900,
+    "price": "₹500–950"
+  },
+  {
+    "id": 149,
+    "name": "Big Bun Theory",
+    "area": "Viman Nagar",
+    "cuisine": "Burgers",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Crispy Chicken Burger",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Viman Nagar's crispy chicken burger champion. Buttermilk-fried chicken, pickles, and Nashville hot sauce on a potato bun.",
+    "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80",
+    "map": "https://maps.google.com/?q=Big+Bun+Theory+Viman+Nagar+Pune",
+    "reviews": 1600,
+    "price": "₹350–700"
+  },
+  {
+    "id": 150,
+    "name": "Stack'd",
+    "area": "Wakad",
+    "cuisine": "Burgers",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "BBQ Bacon Burger",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Wakad's late-night burger fix. Massive, messy, brilliant BBQ bacon burgers with hand-cut fries.",
+    "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80",
+    "map": "https://maps.google.com/?q=Stack%27d+Wakad+Pune",
+    "reviews": 1300,
+    "price": "₹350–700"
+  },
+  {
+    "id": 151,
+    "name": "Scoop Shop",
+    "area": "Koregaon Park",
+    "cuisine": "Desserts",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Mango Kulfi Ice Cream",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "family",
+      "insta"
+    ],
+    "desc": "KP's most beloved ice cream parlour. 40 flavours from matcha to Alphonso mango — the queue is always worth it.",
+    "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80",
+    "map": "https://maps.google.com/?q=Scoop+Shop+Koregaon+Park+Pune",
+    "reviews": 3200,
+    "price": "₹150–400"
+  },
+  {
+    "id": 152,
+    "name": "Mithai Magic",
+    "area": "Sadashiv Peth",
+    "cuisine": "Desserts",
+    "rating": 4.7,
+    "budget": "₹",
+    "mustTry": "Puran Poli",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Old Pune's most treasured mithai shop. The Puran Poli with ghee is the dessert that Pune was built on.",
+    "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80",
+    "map": "https://maps.google.com/?q=Mithai+Magic+Sadashiv+Peth+Pune",
+    "reviews": 2800,
+    "price": "₹80–300"
+  },
+  {
+    "id": 153,
+    "name": "Waffles & More",
+    "area": "Viman Nagar",
+    "cuisine": "Desserts",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Belgian Waffle",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Viman Nagar's dessert café obsession. Loaded Belgian waffles with Nutella, fresh berries, and hand-churned vanilla ice cream.",
+    "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80",
+    "map": "https://maps.google.com/?q=Waffles+%26+More+Viman+Nagar+Pune",
+    "reviews": 1800,
+    "price": "₹250–550"
+  },
+  {
+    "id": 154,
+    "name": "Cheesecake Factory",
+    "area": "Baner",
+    "cuisine": "Desserts",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "NY Cheesecake",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "friends",
+      "date"
+    ],
+    "desc": "Baner's dessert destination for serious cheesecake. 12 varieties daily — the classic NY baked with berry compote is perfect.",
+    "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80",
+    "map": "https://maps.google.com/?q=Cheesecake+Factory+Baner+Pune",
+    "reviews": 1500,
+    "price": "₹200–500"
+  },
+  {
+    "id": 155,
+    "name": "Biryani Blues",
+    "area": "Koregaon Park",
+    "cuisine": "Biryani",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Hyderabadi Dum Biryani",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family",
+      "friends"
+    ],
+    "desc": "The Hyderabadi biryani that KP swears by. Slow-dum cooked in clay pots with saffron and kewra — the fragrance hits from the street.",
+    "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80",
+    "map": "https://maps.google.com/?q=Biryani+Blues+Koregaon+Park+Pune",
+    "reviews": 2700,
+    "price": "₹350–650"
+  },
+  {
+    "id": 156,
+    "name": "Dum Pukht",
+    "area": "Shivajinagar",
+    "cuisine": "Biryani",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Mutton Dum Biryani",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Shivajinagar's biryani royalty. The mutton dum biryani is sealed with dough and opened tableside — every bite is theatre.",
+    "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80",
+    "map": "https://maps.google.com/?q=Dum+Pukht+Shivajinagar+Pune",
+    "reviews": 3100,
+    "price": "₹400–750"
+  },
+  {
+    "id": 157,
+    "name": "Paradise Biryani",
+    "area": "Hadapsar",
+    "cuisine": "Biryani",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Chicken Biryani",
+    "crowd": "high",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Hadapsar's beloved biryani joint serving over 500 plates daily. The chicken biryani is consistent, affordable, and always satisfying.",
+    "img": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80",
+    "map": "https://maps.google.com/?q=Paradise+Biryani+Hadapsar+Pune",
+    "reviews": 4500,
+    "price": "₹200–400"
+  },
+  {
+    "id": 158,
+    "name": "Peshawri",
+    "area": "Koregaon Park",
+    "cuisine": "North Indian",
+    "rating": 4.8,
+    "budget": "₹₹₹",
+    "mustTry": "Dal Bukhara",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family",
+      "date"
+    ],
+    "desc": "Pune's finest frontier cuisine. Dal Bukhara simmered for 18 hours, buttery naan, and tandoori dishes that belong in Delhi.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Peshawri+Koregaon+Park+Pune",
+    "reviews": 2500,
+    "price": "₹900–1600"
+  },
+  {
+    "id": 159,
+    "name": "Punjabi Tadka",
+    "area": "Wakad",
+    "cuisine": "North Indian",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Sarson ka Saag",
+    "crowd": "mid",
+    "tags": [
+      "weekend"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Wakad's most satisfying Punjabi kitchen. Winter special Sarson ka Saag with white butter and makki roti — genuinely done right.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Punjabi+Tadka+Wakad+Pune",
+    "reviews": 1900,
+    "price": "₹300–600"
+  },
+  {
+    "id": 160,
+    "name": "Frontier",
+    "area": "Camp",
+    "cuisine": "North Indian",
+    "rating": 4.6,
+    "budget": "₹₹₹",
+    "mustTry": "Raan",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "family",
+      "date"
+    ],
+    "desc": "Camp's most dramatic North Indian kitchen. The whole-leg Raan slow-roasted in the tandoor is an occasion in itself.",
+    "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    "map": "https://maps.google.com/?q=Frontier+Camp+Pune",
+    "reviews": 1600,
+    "price": "₹700–1400"
+  },
+  {
+    "id": 161,
+    "name": "Idli House",
+    "area": "Kothrud",
+    "cuisine": "South Indian",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Soft Idli",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "gem"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Kothrud's idli institution. The softest, fluffiest idlis in Pune served with 4 chutneys and sambar that has actual depth.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=Idli+House+Kothrud+Pune",
+    "reviews": 2800,
+    "price": "₹60–200"
+  },
+  {
+    "id": 162,
+    "name": "Chettinad House",
+    "area": "Baner",
+    "cuisine": "South Indian",
+    "rating": 4.7,
+    "budget": "₹₹",
+    "mustTry": "Chettinad Chicken Curry",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family",
+      "friends"
+    ],
+    "desc": "Authentic Chettinad cooking in Baner. The fiery, aromatic Chettinad chicken curry with parotta is unlike anything else in Pune.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=Chettinad+House+Baner+Pune",
+    "reviews": 2100,
+    "price": "₹350–700"
+  },
+  {
+    "id": 163,
+    "name": "Madras Café",
+    "area": "Hadapsar",
+    "cuisine": "South Indian",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Filter Coffee",
+    "crowd": "high",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Hadapsar's authentic Tamil breakfast spot. Filter coffee in a steel tumbler-davara and crispy ghee-roast dosa that's earned its following.",
+    "img": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80",
+    "map": "https://maps.google.com/?q=Madras+Café+Hadapsar+Pune",
+    "reviews": 2400,
+    "price": "₹80–250"
+  },
+  {
+    "id": 164,
+    "name": "Third Wave Coffee",
+    "area": "Baner",
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Cortado",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Baner's most serious specialty coffee bar. Single-origin beans, dialled-in espresso, and a cortado that converts non-coffee drinkers.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Third+Wave+Coffee+Baner+Pune",
+    "reviews": 1800,
+    "price": "₹250–600"
+  },
+  {
+    "id": 165,
+    "name": "The Reading Room",
+    "area": "Deccan",
+    "cuisine": "Cafe",
+    "rating": 4.5,
+    "budget": "₹",
+    "mustTry": "Filter Coffee",
+    "crowd": "low",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Deccan's quietest, most bookish café. Floor-to-ceiling shelves, slow service, and a peace that's increasingly rare in Pune.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=The+Reading+Room+Deccan+Pune",
+    "reviews": 950,
+    "price": "₹150–400"
+  },
+  {
+    "id": 166,
+    "name": "Café Parizad",
+    "area": "Camp",
+    "cuisine": "Cafe",
+    "rating": 4.7,
+    "budget": "₹",
+    "mustTry": "Irani Chai",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "friends",
+      "family"
+    ],
+    "desc": "The Irani café that defines Camp's soul. Same chai, same wooden chairs, same beautiful chaos — since 1955.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Café+Parizad+Camp+Pune",
+    "reviews": 4200,
+    "price": "₹50–200"
+  },
+  {
+    "id": 167,
+    "name": "Artisan Roast",
+    "area": "Kalyani Nagar",
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Cold Brew",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "KN's specialty coffee destination. 72-hour cold brew, Kenyan single-origin pour-overs and fresh pastries from their own kitchen.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Artisan+Roast+Kalyani+Nagar+Pune",
+    "reviews": 1600,
+    "price": "₹300–650"
+  },
+  {
+    "id": 168,
+    "name": "Terrace Talk",
+    "area": "Hinjewadi",
+    "cuisine": "Cafe",
+    "rating": 4.4,
+    "budget": "₹₹",
+    "mustTry": "Avocado Toast",
+    "crowd": "mid",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "friends",
+      "insta"
+    ],
+    "desc": "Hinjewadi's rooftop café with Pune skyline views. Avocado toast, specialty coffee, and a sunset that makes the IT grind bearable.",
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+    "map": "https://maps.google.com/?q=Terrace+Talk+Hinjewadi+Pune",
+    "reviews": 1400,
+    "price": "₹350–700"
+  },
+  {
+    "id": 169,
+    "name": "Aaswad Upahara",
+    "area": "Shivajinagar",
+    "cuisine": "Maharashtrian",
+    "rating": 4.7,
+    "budget": "₹",
+    "mustTry": "Sabudana Khichdi",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "weekend",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Pune's most celebrated Maharashtrian snack house. The Sabudana Khichdi is the gold standard — light, fragrant, never sticky.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Aaswad+Upahara+Shivajinagar+Pune",
+    "reviews": 5200,
+    "price": "₹50–200"
+  },
+  {
+    "id": 170,
+    "name": "Poona Guest House",
+    "area": "Camp",
+    "cuisine": "Maharashtrian",
+    "rating": 4.6,
+    "budget": "₹",
+    "mustTry": "Bharli Vangi",
+    "crowd": "mid",
+    "tags": [
+      "gem"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "Old Camp's Maharashtrian home-cooking secret. The stuffed Bharli Vangi with groundnut masala is everything a grandmother would make.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Poona+Guest+House+Camp+Pune",
+    "reviews": 1400,
+    "price": "₹150–350"
+  },
+  {
+    "id": 171,
+    "name": "Chitale Bandhu",
+    "area": "Deccan",
+    "cuisine": "Maharashtrian",
+    "rating": 4.8,
+    "budget": "₹",
+    "mustTry": "Bhakarwadi",
+    "crowd": "high",
+    "tags": [
+      "trending",
+      "gem",
+      "leaderboard"
+    ],
+    "vibe": [
+      "family"
+    ],
+    "desc": "The iconic Chitale Bandhu outlet on Deccan. The Bhakarwadi that Pune exports to the world and the Bakarwadi that converts outsiders.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Chitale+Bandhu+Deccan+Pune",
+    "reviews": 6100,
+    "price": "₹50–300"
+  },
+  {
+    "id": 172,
+    "name": "Kolhapuri Kitchen",
+    "area": "Kothrud",
+    "cuisine": "Maharashtrian",
+    "rating": 4.6,
+    "budget": "₹₹",
+    "mustTry": "Tambada Rassa",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family",
+      "friends"
+    ],
+    "desc": "The fiery Kolhapuri red mutton curry (Tambada Rassa) that makes your eyes water and your heart sing. Served with bhakri.",
+    "img": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80",
+    "map": "https://maps.google.com/?q=Kolhapuri+Kitchen+Kothrud+Pune",
+    "reviews": 2100,
+    "price": "₹250–500"
+  },
+  {
+    "id": 173,
+    "name": "Mainland China",
+    "area": "Koregaon Park",
+    "cuisine": "Chinese",
+    "rating": 4.6,
+    "budget": "₹₹₹",
+    "mustTry": "Peking Duck",
+    "crowd": "mid",
+    "tags": [
+      "trending",
+      "weekend"
+    ],
+    "vibe": [
+      "family",
+      "date"
+    ],
+    "desc": "KP's most upscale Chinese dining. The Peking duck carved tableside is a ceremony and the dim sum basket is always fresh.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=Mainland+China+Koregaon+Park+Pune",
+    "reviews": 2300,
+    "price": "₹800–1600"
+  },
+  {
+    "id": 174,
+    "name": "Wok Express",
+    "area": "Hinjewadi",
+    "cuisine": "Chinese",
+    "rating": 4.4,
+    "budget": "₹",
+    "mustTry": "Schezwan Noodles",
+    "crowd": "high",
+    "tags": [
+      "trending"
+    ],
+    "vibe": [
+      "friends"
+    ],
+    "desc": "Hinjewadi's fastest Chinese lunch fix. Build-your-own wok bowl — schezwan noodles with extra chilli oil is the IT crowd's go-to.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=Wok+Express+Hinjewadi+Pune",
+    "reviews": 3200,
+    "price": "₹150–350"
+  },
+  {
+    "id": 175,
+    "name": "Dragon Garden",
+    "area": "Aundh",
+    "cuisine": "Chinese",
+    "rating": 4.5,
+    "budget": "₹₹",
+    "mustTry": "Kung Pao Chicken",
+    "crowd": "mid",
+    "tags": [
+      "weekend",
+      "gem"
+    ],
+    "vibe": [
+      "family",
+      "friends"
+    ],
+    "desc": "Aundh's neighbourhood Chinese restaurant that's been packing tables for 15 years. The Kung Pao Chicken is perfectly balanced.",
+    "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80",
+    "map": "https://maps.google.com/?q=Dragon+Garden+Aundh+Pune",
+    "reviews": 1900,
+    "price": "₹300–650"
+  }
 ];
