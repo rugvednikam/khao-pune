@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="खाओ Pune">
+  <meta name="description" content="Find the best places to eat in Pune instantly.">
+  <title>खाओ Pune 🔥</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ═══ SPLASH ═══ -->
+<div id="splash">
+  <div class="splash-ring"></div>
+  <div class="splash-ring r2"></div>
+  <div class="splash-content">
+    <div class="splash-flame">🔥</div>
+    <div class="splash-brand">खाओ<span>Pune</span></div>
+    <div class="splash-tagline">WHAT'S HOT · WHAT'S NOW</div>
+    <div class="splash-loader"><div class="splash-fill"></div></div>
+  </div>
+</div>
+
+<!-- ═══ INSTALL BANNER ═══ -->
+<div id="installBanner" class="install-banner hidden">
+  <span class="install-ico">📲</span>
+  <div class="install-text">
+    <b>Install खाओ Pune</b>
+    <small>Add to home screen</small>
+  </div>
+  <button id="installBtn">Install</button>
+  <button id="installDismiss" class="dismiss-x">✕</button>
+</div>
+
+<!-- ═══ APP ═══ -->
+<div id="app" class="app hidden">
+
+  <!-- ══ DESKTOP SIDEBAR (hidden on mobile via CSS) ══ -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="sidebar-fire">🔥</span>
+      <div class="sidebar-name">खाओ<em>Pune</em></div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="snav-btn active" id="snav-home" onclick="showPage('home')">
+        <span class="snav-ico">🏠</span>
+        <span class="snav-lbl">Home</span>
+      </button>
+      <button class="snav-btn" id="snav-search" onclick="showPage('search')">
+        <span class="snav-ico">🔍</span>
+        <span class="snav-lbl">Search</span>
+      </button>
+      <button class="snav-btn" id="snav-saved" onclick="showPage('saved')">
+        <span class="snav-ico">❤️</span>
+        <span class="snav-lbl">Saved</span>
+        <span class="snav-badge zero" id="snavSavedCnt">0</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-decide" onclick="openDecide()">
+      <div class="sd-icon">🎲</div>
+      <div class="sd-text">Decide For Me</div>
+      <div class="sd-hint">Pick filters → get 3 perfect spots</div>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN COLUMN (wraps topbar + content + bottom-nav) ══ -->
+  <div class="desktop-main">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <span class="topbar-fire">🔥</span>
+        <span class="topbar-name">खाओ<em>Pune</em></span>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn glow-btn" id="savedNavBtn" onclick="showPage('saved')" aria-label="Saved">
+          <span>❤️</span>
+          <span class="badge zero" id="savedNavCnt">0</span>
+        </button>
+        <button class="icon-btn" onclick="showPage('search')" aria-label="Search">🔍</button>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main id="pageContainer">
+
+      <!-- ════ HOME ════ -->
+      <div id="page-home" class="page active">
+
+        <section class="hero-decide">
+          <div class="hero-bg-orb o1"></div>
+          <div class="hero-bg-orb o2"></div>
+          <div class="hero-bg-orb o3"></div>
+          <div class="hero-inner">
+            <div class="hero-label">CAN'T DECIDE WHERE TO EAT?</div>
+            <button class="dice-btn" onclick="openDecide()">
+              <span class="dice-icon">🎲</span>
+              <span>Decide For Me</span>
+            </button>
+            <p class="hero-hint">Pick area · vibe · budget → 3 perfect picks</p>
+          </div>
+        </section>
+
+        <section class="home-sec">
+          <div class="sec-hd">
+            <span class="sec-title">📍 Explore by Area</span>
+          </div>
+          <div class="area-scroll" id="areaTiles"></div>
+        </section>
+
+        <section class="home-sec">
+          <div class="sec-hd">
+            <span class="sec-title">🔥 Trending Today</span>
+            <span class="tag tag-live">LIVE</span>
+          </div>
+          <div class="cards-scroll" id="trendingToday">
+            <div class="skeleton-scroll">
+              <div class="skeleton-card"></div>
+              <div class="skeleton-card"></div>
+              <div class="skeleton-card"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="home-sec">
+          <div class="sec-hd">
+            <span class="sec-title">🗓️ Weekend Hotspots</span>
+            <span class="tag tag-wk">SAT–SUN</span>
+          </div>
+          <div class="cards-scroll" id="weekendHotspots">
+            <div class="skeleton-scroll">
+              <div class="skeleton-card"></div>
+              <div class="skeleton-card"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="home-sec">
+          <div class="sec-hd">
+            <span class="sec-title">💎 Hidden Gems</span>
+            <span class="tag tag-gem">UNDERRATED</span>
+          </div>
+          <div class="cards-scroll" id="hiddenGems">
+            <div class="skeleton-scroll">
+              <div class="skeleton-card"></div>
+              <div class="skeleton-card"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="home-sec lb-sec">
+          <div class="sec-hd">
+            <span class="sec-title">🏆 Pune Food Leaderboard</span>
+          </div>
+          <div class="lb-list" id="leaderboardList"></div>
+        </section>
+
+      </div><!-- /home -->
+
+      <!-- ════ AREA PAGE ════ -->
+      <div id="page-area" class="page">
+        <div class="page-bar">
+          <button class="back-btn" onclick="showPage('home')">←</button>
+          <div class="page-bar-title" id="areaPageTitle">Area</div>
+        </div>
+        <div class="cards-grid" id="areaCards"></div>
+      </div>
+
+      <!-- ════ SAVED PAGE ════ -->
+      <div id="page-saved" class="page">
+        <div class="page-bar">
+          <button class="back-btn" onclick="showPage('home')">←</button>
+          <div class="page-bar-title">❤️ My Food List</div>
+        </div>
+        <div id="savedEmpty" class="empty-state hidden">
+          <div class="empty-ico">💔</div>
+          <div class="empty-title">Nothing saved yet</div>
+          <div class="empty-sub">Tap ❤️ on any restaurant to save it.</div>
+          <button class="cta-btn" onclick="showPage('home')">Explore Restaurants →</button>
+        </div>
+        <div class="cards-grid" id="savedCards"></div>
+      </div>
+
+      <!-- ════ SEARCH PAGE ════ -->
+      <div id="page-search" class="page">
+        <div class="page-bar search-bar">
+          <button class="back-btn" onclick="showPage('home')">←</button>
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input"
+                   placeholder="Search restaurants, cuisines, areas…"
+                   oninput="handleSearch(this.value)" autofocus autocomplete="off">
+            <button class="search-clear hidden" id="searchClear" onclick="clearSearch()">✕</button>
+          </div>
+        </div>
+        <div class="filter-chips-row">
+          <button class="chip active" onclick="filterSearch('all',this)">All</button>
+          <button class="chip" onclick="filterSearch('Maharashtrian',this)">Maharashtrian</button>
+          <button class="chip" onclick="filterSearch('Italian',this)">Italian</button>
+          <button class="chip" onclick="filterSearch('Chinese',this)">Chinese</button>
+          <button class="chip" onclick="filterSearch('Cafe',this)">Cafe</button>
+          <button class="chip" onclick="filterSearch('Street Food',this)">Street Food</button>
+          <button class="chip" onclick="filterSearch('Desserts',this)">Desserts</button>
+          <button class="chip" onclick="filterSearch('Biryani',this)">Biryani</button>
+          <button class="chip" onclick="filterSearch('North Indian',this)">North Indian</button>
+          <button class="chip" onclick="filterSearch('South Indian',this)">South Indian</button>
+        </div>
+        <div class="cards-grid" id="searchResults"></div>
+        <div id="searchEmpty" class="empty-state hidden">
+          <div class="empty-ico">🔍</div>
+          <div class="empty-title">No results found</div>
+          <div class="empty-sub">Try a different search or filter.</div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- BOTTOM NAV (mobile only, hidden on desktop via CSS) -->
+    <nav class="bottom-nav">
+      <button class="bnav-btn active" id="bnav-home" onclick="showPage('home')">
+        <span class="bnav-ico">🏠</span><span class="bnav-lbl">Home</span>
+      </button>
+      <button class="bnav-btn" id="bnav-decide" onclick="openDecide()">
+        <span class="bnav-ico">🎲</span><span class="bnav-lbl">Decide</span>
+      </button>
+      <button class="bnav-btn" id="bnav-search" onclick="showPage('search')">
+        <span class="bnav-ico">🔍</span><span class="bnav-lbl">Search</span>
+      </button>
+      <button class="bnav-btn" id="bnav-saved" onclick="showPage('saved')">
+        <span class="bnav-ico">❤️</span><span class="bnav-lbl">Saved</span>
+      </button>
+    </nav>
+
+  </div><!-- /desktop-main -->
+</div><!-- /app -->
+
+<!-- ═══ DECIDE SHEET ═══ -->
+<div id="decideOverlay" class="overlay hidden" onclick="if(event.target===this)closeDecide()">
+  <div class="sheet" id="decideSheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-hd">
+      <span class="sheet-title">🎲 Decide For Me</span>
+      <button class="sheet-x" onclick="closeDecide()">✕</button>
+    </div>
+    <div id="decideFilters" class="sheet-body">
+      <div class="fgroup">
+        <div class="flabel">📍 Area</div>
+        <div class="fchips" id="filterArea">
+          <button class="fchip active" data-val="any">Any Area</button>
+          <button class="fchip" data-val="Baner">Baner</button>
+          <button class="fchip" data-val="Wakad">Wakad</button>
+          <button class="fchip" data-val="Hinjewadi">Hinjewadi</button>
+          <button class="fchip" data-val="Kothrud">Kothrud</button>
+          <button class="fchip" data-val="Viman Nagar">Viman Nagar</button>
+          <button class="fchip" data-val="Koregaon Park">Koregaon Park</button>
+          <button class="fchip" data-val="Aundh">Aundh</button>
+          <button class="fchip" data-val="PCMC">PCMC</button>
+          <button class="fchip" data-val="Hadapsar">Hadapsar</button>
+          <button class="fchip" data-val="Deccan">Deccan</button>
+          <button class="fchip" data-val="Shivajinagar">Shivajinagar</button>
+          <button class="fchip" data-val="Kalyani Nagar">Kalyani Nagar</button>
+          <button class="fchip" data-val="Camp">Camp</button>
+          <button class="fchip" data-val="Sinhgad Road">Sinhgad Road</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <div class="flabel">🍽️ Cuisine</div>
+        <div class="fchips" id="filterCuisine">
+          <button class="fchip active" data-val="any">Any</button>
+          <button class="fchip" data-val="Maharashtrian">Maharashtrian</button>
+          <button class="fchip" data-val="Italian">Italian</button>
+          <button class="fchip" data-val="Chinese">Chinese</button>
+          <button class="fchip" data-val="Street Food">Street Food</button>
+          <button class="fchip" data-val="Cafe">Cafe</button>
+          <button class="fchip" data-val="Desserts">Desserts</button>
+          <button class="fchip" data-val="North Indian">North Indian</button>
+          <button class="fchip" data-val="South Indian">South Indian</button>
+          <button class="fchip" data-val="Biryani">Biryani</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <div class="flabel">💰 Budget</div>
+        <div class="fchips" id="filterBudget">
+          <button class="fchip active" data-val="any">Any</button>
+          <button class="fchip" data-val="₹">₹ Under ₹200</button>
+          <button class="fchip" data-val="₹₹">₹₹ ₹200–600</button>
+          <button class="fchip" data-val="₹₹₹">₹₹₹ ₹600+</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <div class="flabel">👥 Going as</div>
+        <div class="fchips" id="filterGroup">
+          <button class="fchip active" data-val="any">Doesn't matter</button>
+          <button class="fchip" data-val="family">👨‍👩‍👧 Family</button>
+          <button class="fchip" data-val="date">💑 Date Night</button>
+          <button class="fchip" data-val="friends">🙌 Friends</button>
+          <button class="fchip" data-val="insta">📸 Insta Cafe</button>
+        </div>
+      </div>
+      <button class="go-btn" onclick="runDecide()">🎲 Show My 3 Picks</button>
+    </div>
+    <div id="decideResults" class="sheet-body hidden">
+      <div class="results-hd">
+        <span class="results-title">🎯 Your 3 picks</span>
+        <button class="re-btn" onclick="showDecideFilters()">← Change Filters</button>
+      </div>
+      <div id="decideResultCards" class="cards-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DETAIL SHEET ═══ -->
+<div id="detailOverlay" class="overlay hidden" onclick="if(event.target===this)closeDetail()">
+  <div class="sheet detail-sheet" id="detailSheet">
+    <div class="sheet-handle"></div>
+    <div class="detail-hero" id="detailHero"></div>
+    <div class="detail-body" id="detailBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- OFFLINE BANNER -->
+<div id="offlineBanner" class="offline-banner hidden">
+  📡 You're offline — showing cached content
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

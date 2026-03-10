@@ -1,0 +1,33 @@
+# ─────────────────────────────────────────────
+# Render configuration — खाओ Pune backend
+# ─────────────────────────────────────────────
+
+services:
+  - type: web
+    name: khao-pune-api
+    env: node
+    region: singapore          # Closest to India; change to frankfurt if needed
+    branch: main
+    buildCommand: npm install
+    startCommand: node backend/server.js
+    plan: free
+
+    envVars:
+      - key: PORT
+        value: 10000            # Render assigns 10000 by default
+
+      - key: CORS_ORIGIN
+        # Replace with your actual Netlify URL after first deploy
+        # e.g. https://khao-pune.netlify.app
+        value: https://frontendkhaopune.netlify.app
+
+      - key: NODE_ENV
+        value: production
+
+    # Persist db.json across deploys using a Render Disk
+    # Uncomment the block below once you upgrade from free tier
+    # (Free tier has ephemeral storage — data resets on redeploy)
+    # disk:
+    #   name: khao-pune-data
+    #   mountPath: /opt/render/project/src/backend
+    #   sizeGB: 1

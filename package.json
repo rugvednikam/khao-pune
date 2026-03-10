@@ -1,0 +1,18 @@
+{
+  "name": "khao-pune-pwa",
+  "version": "2.0.0",
+  "description": "खाओ Pune — Best food spots in Pune. PWA with Node.js backend.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start":  "node backend/server.js",
+    "test":   "node tests/tests.js",
+    "dev":    "node backend/server.js",
+    "seed":   "node backend/seed.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["pune","food","restaurants","pwa"],
+  "license": "MIT"
+}
+
