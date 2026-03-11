@@ -18,7 +18,7 @@ const PORT        = process.env.PORT || 3001;
 const DB_PATH     = path.join(__dirname, 'db.json');
 
 // CORS_ORIGIN can be a comma-separated list or '*'
-// e.g. CORS_ORIGIN=https://khao-pune.netlify.app,https://khao-pune-preview.netlify.app
+// e.g. CORS_ORIGIN=https://testy-pune.netlify.app
 const CORS_ORIGINS = (process.env.CORS_ORIGIN || '*')
   .split(',').map(s => s.trim()).filter(Boolean);
 
@@ -316,17 +316,11 @@ async function router(req, res) {
 const server = http.createServer(router);
 
 if (require.main === module) {
-  const seed = require('./seed.js');
-
-  // Init DB if missing, OR reseed if db has fewer restaurants than seed
-  let db = { restaurants: [], favorites: {}, ratings: {} };
-  if (fs.existsSync(DB_PATH)) {
-    try { db = JSON.parse(fs.readFileSync(DB_PATH, 'utf8')); } catch {}
-  }
-  if (!db.restaurants || db.restaurants.length < seed.length) {
-    db.restaurants = seed;
-    writeDB(db);
-    console.log(`✅ Database updated to ${seed.length} restaurants (was ${db.restaurants?.length || 0})`);
+  // Init DB if empty
+  if (!fs.existsSync(DB_PATH)) {
+    const seed = require('./seed.js');
+    writeDB({ restaurants: seed, favorites: {}, ratings: {} });
+    console.log(`✅ Database seeded with ${seed.length} restaurants`);
   }
 
   server.listen(PORT, () => {

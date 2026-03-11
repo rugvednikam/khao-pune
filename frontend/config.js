@@ -1,6 +1,6 @@
 /**
  * खाओ Pune — Runtime Config
- * Update BACKEND_URL after deploying the backend to Render.
- * e.g. 'https://khao-pune-api.onrender.com'
+ * Netlify frontend: https://testy-pune.netlify.app
+ * Render backend:   https://khao-pune.onrender.com
  */
-window.BACKEND_URL = 'https://foodcravings.onrender.com';
+window.BACKEND_URL = 'https://khao-pune.onrender.com';
