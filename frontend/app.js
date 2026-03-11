@@ -86,18 +86,21 @@ window.addEventListener('offline', updateOnlineStatus);
 // ──────────────────────────────────────────────────
 // API FETCH HELPER
 // ──────────────────────────────────────────────────
-async function apiFetch(path, opts = {}) {
-  try {
-    const res = await fetch(API_BASE + path, {
-      headers: { 'Content-Type': 'application/json', ...opts.headers },
-      ...opts,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } catch (err) {
-    console.warn('[API]', path, err.message);
-    return null;
+async function apiFetch(path, opts = {}, retries = 3, delay = 3000) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(API_BASE + path, {
+        headers: { 'Content-Type': 'application/json', ...opts.headers },
+        ...opts,
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      console.warn(`[API] attempt ${attempt}/${retries}`, path, err.message);
+      if (attempt < retries) await new Promise(r => setTimeout(r, delay));
+    }
   }
+  return null;
 }
 
 // ──────────────────────────────────────────────────
@@ -228,6 +231,9 @@ async function buildHome() {
       <div class="area-tile-ico">${a.icon}</div>
       <div class="area-tile-name">${escHtml(a.name)}</div>
     </div>`).join('');
+
+  // Show waking up message while Render spins up
+  showToast('🔄 Waking up server… (~30s first load)');
 
   // Parallel API requests
   const [trendRes, wkRes, gemRes, lbRes] = await Promise.all([
