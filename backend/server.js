@@ -111,7 +111,7 @@ function filterRestaurants(restaurants, query) {
 function paginateAndSort(arr, query) {
   const { sort = 'rating', page = 1, limit = 20 } = query;
   const p = Math.max(1, parseInt(page));
-  const l = Math.min(50, Math.max(1, parseInt(limit)));
+  const l = Math.min(200, Math.max(1, parseInt(limit)));
 
   let sorted = [...arr];
   if (sort === 'rating') sorted.sort((a, b) => b.rating - a.rating);
@@ -316,11 +316,17 @@ async function router(req, res) {
 const server = http.createServer(router);
 
 if (require.main === module) {
-  // Init DB if empty
-  if (!fs.existsSync(DB_PATH)) {
-    const seed = require('./seed.js');
-    writeDB({ restaurants: seed, favorites: {}, ratings: {} });
-    console.log(`✅ Database seeded with ${seed.length} restaurants`);
+  const seed = require('./seed.js');
+
+  // Init DB if missing, OR reseed if db has fewer restaurants than seed
+  let db = { restaurants: [], favorites: {}, ratings: {} };
+  if (fs.existsSync(DB_PATH)) {
+    try { db = JSON.parse(fs.readFileSync(DB_PATH, 'utf8')); } catch {}
+  }
+  if (!db.restaurants || db.restaurants.length < seed.length) {
+    db.restaurants = seed;
+    writeDB(db);
+    console.log(`✅ Database updated to ${seed.length} restaurants (was ${db.restaurants?.length || 0})`);
   }
 
   server.listen(PORT, () => {
