@@ -308,7 +308,7 @@ async function showAreaPage(areaName) {
   document.getElementById('areaCards').innerHTML = '<div class="spinner"></div>';
   showPage('area');
 
-  const data = await apiFetch(`/api/restaurants?area=${encodeURIComponent(areaName)}&sort=rating&limit=50`);
+  const data = await apiFetch(`/api/restaurants?area=${encodeURIComponent(areaName)}&sort=rating&limit=200`);
   const el = document.getElementById('areaCards');
   if (!data || !data.items?.length) {
     el.innerHTML = `<div class="empty-state"><div class="empty-ico">🍽️</div><div class="empty-title">Coming Soon</div><div class="empty-sub">We're adding restaurants in ${escHtml(areaName)} soon!</div></div>`;
@@ -376,7 +376,7 @@ function filterSearch(cuisine, btn) {
 }
 
 async function runSearch() {
-  const params = new URLSearchParams({ limit: 100, sort: 'rating' });
+  const params = new URLSearchParams({ limit: 200, sort: 'rating' });
   if (searchActive.q)                    params.set('q', searchActive.q);
   if (searchActive.cuisine !== 'all' && searchActive.cuisine !== 'any')
     params.set('cuisine', searchActive.cuisine);
